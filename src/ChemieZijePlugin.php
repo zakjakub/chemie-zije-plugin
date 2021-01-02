@@ -2,7 +2,7 @@
 
 namespace Zakjakub\ChemieZijePlugin;
 
-class ChemieZijePlugin extends Site
+class ChemieZijePlugin
 {
 
     public function __construct()
