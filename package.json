@@ -1,0 +1,11 @@
+{
+  "name": "chemie-zije-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@wpackio/scripts": "^5.0.0"
+  },
+  "scripts": {
+    "bootstrap": "wpackio-scripts bootstrap"
+  }
+}
