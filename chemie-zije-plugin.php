@@ -1,6 +1,6 @@
 <?php
 /**
- * CHEMIE ŽIJE!
+ * Plugin Name: CHEMIE ŽIJE!
  */
 
 use Zakjakub\ChemieZijePlugin\ChemieZijePlugin;
