@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": ">=8.0",
-    "wpackio/enqueue": "dev-master"
+    "wpackio/enqueue": "^2.2"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
