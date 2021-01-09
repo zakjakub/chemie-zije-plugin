@@ -23,14 +23,14 @@ class ChemieZijePlugin
     {
     }
 
-    private function crbAttachThemeOptions(): void
+    final public function crbAttachThemeOptions(): void
     {
         Container::make('theme_options', __('Theme Options'))->add_fields(
             [Field::make('text', 'crb_text', 'Text Field'),]
         );
     }
 
-    private function crbLoad(): void
+    final public function crbLoad(): void
     {
         require_once('vendor/autoload.php');
         Carbon_Fields::boot();
