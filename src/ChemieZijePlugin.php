@@ -24,13 +24,12 @@ class ChemieZijePlugin
     {
         $mainSettings = Container::make('theme_options', 'Nastavení webu');
         $mainSettings->add_fields([Field::make('text', 'example_option_1')]);
-        $contactSettings = $this->getContactFieldsGroup();
+        $contactSettings = Container::make('theme_options', 'Nastavení webu');
         assert($contactSettings instanceof Container\Theme_Options_Container);
         $contactSettings->set_page_parent($mainSettings);
         $contactSettings->add_fields(
             [
-                Field::make('text', 'crb_facebook_link', __('Facebook Link')),
-                Field::make('text', 'crb_twitter_link', __('Twitter Link')),
+                $this->getContactFieldsGroup(),
             ]
         );
     }
