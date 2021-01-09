@@ -27,13 +27,12 @@ class ChemieZijePlugin
         $contactSettings = Container::make('theme_options', 'Kontakt');
         assert($contactSettings instanceof Container\Theme_Options_Container);
         $contactSettings->set_page_parent($mainSettings);
-        $contactSettings->add_fields(...$this->getContactFields(),);
+        $contactSettings->add_fields($this->getContactFields());
     }
 
     final public function getContactFields(): array
     {
-        $persons = Field::make('complex', 'persons');
-        $persons->add_fields(
+        $persons = Field::make('complex', 'persons')->add_fields(
             'person',
             [
                 Field::make('text', 'name', 'Celé jméno'),
@@ -43,8 +42,7 @@ class ChemieZijePlugin
                 Field::make('text', 'e_mail', 'E-mail'),
             ],
         );
-        $subDepartments = Field::make('complex', 'sub_departments');
-        $subDepartments->add_fields(
+        $subDepartments = Field::make('complex', 'sub_departments')->add_fields(
             'department',
             [
                 Field::make('text', 'name', 'Název'),
