@@ -24,14 +24,14 @@ class ChemieZijePlugin
     final public function register_carbon_fields(): void
     {
         Container::make('theme_options', 'YourFancyPlugin options')->add_fields(
-            [Field::make('text', 'YourFancyPlugin_option_1')]
+            [Field::make('text', 'example_option_1')]
         );
     }
 
     final public function carbon_fields_values_are_available(): void
     {
         /* retrieve the values of your Carbon Fields related to your plugin */
-        var_dump(carbon_get_theme_option('YourFancyPlugin_option_1'));
+        var_dump(carbon_get_theme_option('example_option_1'));
         /* do all the stuff that does rely on values of your Carbon Fields */
     }
 }
