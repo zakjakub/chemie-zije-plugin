@@ -2,6 +2,7 @@
 
 namespace Zakjakub\ChemieZijePlugin;
 
+use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -17,16 +18,13 @@ class ChemieZijePlugin
 
     final public function load_carbon_fields(): void
     {
-        require_once 'vendor/autoload.php'; // modify depending on your actual setup
-        \Carbon_Fields\Carbon_Fields::boot();
+        Carbon_Fields::boot();
     }
 
     final public function register_carbon_fields(): void
     {
         Container::make('theme_options', 'YourFancyPlugin options')->add_fields(
-            array(
-                Field::make('text', 'YourFancyPlugin_option_1'),
-            )
+            [Field::make('text', 'YourFancyPlugin_option_1')]
         );
     }
 
