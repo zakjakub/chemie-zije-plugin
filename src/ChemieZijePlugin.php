@@ -17,8 +17,8 @@ class ChemieZijePlugin
 
     final public function loadCarbonFields(): void
     {
-        define('Carbon_Fields\DIR', get_parent_theme_file_path('vendor/htmlburger/carbon-fields'));
-        define('Carbon_Fields\URL', get_parent_theme_file_path('vendor/htmlburger/carbon-fields/'));
+        define('Carbon_Fields\DIR', 'vendor/htmlburger/carbon-fields');
+        define('Carbon_Fields\URL', 'vendor/htmlburger/carbon-fields/');
         Carbon_Fields::boot();
     }
 
