@@ -2,7 +2,6 @@
 
 namespace Zakjakub\ChemieZijePlugin;
 
-use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -11,27 +10,30 @@ class ChemieZijePlugin
 
     public function __construct()
     {
-        add_action('carbon_fields_register_fields', [$this, 'crbAttachThemeOptions']);
-        add_action('after_setup_theme', [$this, 'crbLoad']);
+        add_action('after_setup_theme', [$this, 'load_carbon_fields']);
+        add_action('carbon_fields_register_fields', [$this, 'register_carbon_fields']);
+        add_action('carbon_fields_fields_registered', [$this, 'carbon_fields_values_are_available']);
     }
 
-    final public function registerPostTypes(): void
+    final public function load_carbon_fields(): void
     {
+        require_once 'vendor/autoload.php'; // modify depending on your actual setup
+        \Carbon_Fields\Carbon_Fields::boot();
     }
 
-    final public function registerTaxonomies(): void
+    final public function register_carbon_fields(): void
     {
-    }
-
-    final public function crbAttachThemeOptions(): void
-    {
-        Container::make('theme_options', __('Theme Options'))->add_fields(
-            [Field::make('text', 'crb_text', 'Text Field'),]
+        Container::make('theme_options', 'YourFancyPlugin options')->add_fields(
+            array(
+                Field::make('text', 'YourFancyPlugin_option_1'),
+            )
         );
     }
 
-    final public function crbLoad(): void
+    final public function carbon_fields_values_are_available(): void
     {
-        Carbon_Fields::boot();
+        /* retrieve the values of your Carbon Fields related to your plugin */
+        var_dump(carbon_get_theme_option('YourFancyPlugin_option_1'));
+        /* do all the stuff that does rely on values of your Carbon Fields */
     }
 }
