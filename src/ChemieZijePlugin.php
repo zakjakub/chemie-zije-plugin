@@ -32,7 +32,7 @@ class ChemieZijePlugin
 
     final public function getContactFields(): array
     {
-        $persons = Field::make('complex', 'persons')->add_fields(
+        $persons = Field::make('complex', 'persons', 'Osoby')->add_fields(
             'person',
             [
                 Field::make('text', 'name', 'Celé jméno'),
@@ -42,7 +42,7 @@ class ChemieZijePlugin
                 Field::make('text', 'e_mail', 'E-mail'),
             ],
         );
-        $subDepartments = Field::make('complex', 'sub_departments')->add_fields(
+        $subDepartments = Field::make('complex', 'sub_departments', 'Oddělení')->add_fields(
             'department',
             [
                 Field::make('text', 'name', 'Název'),
