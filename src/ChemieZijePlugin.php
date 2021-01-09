@@ -27,17 +27,11 @@ class ChemieZijePlugin
         $contactSettings = Container::make('theme_options', 'Kontakt');
         assert($contactSettings instanceof Container\Theme_Options_Container);
         $contactSettings->set_page_parent($mainSettings);
-        $contactSettings->add_fields(
-            [
-                $this->getContactFieldsGroup(),
-            ]
-        );
+        $contactSettings->add_fields(...$this->getContactFields(),);
     }
 
-    final public function getContactFieldsGroup(): Field\Field
+    final public function getContactFields(): array
     {
-        $contactFields = Field::make('complex', 'contact');
-        assert($contactFields instanceof Field\Complex_Field);
         $persons = Field::make('complex', 'persons');
         $persons->add_fields(
             'person',
@@ -57,25 +51,21 @@ class ChemieZijePlugin
                 $persons,
             ],
         );
-        $contactFields->add_fields(
-            'address',
-            [
-                Field::make('text', 'name', 'Název'),
-                Field::make('text', 'department', 'Katedra'),
-                Field::make('text', 'faculty', 'Fakulta'),
-                Field::make('text', 'university', 'Univerzita'),
-                Field::make('text', 'street', 'Ulice'),
-                Field::make('text', 'house_number', 'Číslo popisné')->set_attribute('type', 'number'),
-                Field::make('text', 'postal_code', 'Směrovací číslo'),
-                Field::make('text', 'city', 'Město'),
-                Field::make('text', 'phone', 'Telefon'),
-                Field::make('text', 'fax', 'Fax'),
-                Field::make('text', 'e_mail', 'E-mail'),
-                Field::make('text', 'gps', 'GPS'),
-                $subDepartments,
-            ],
-        );
 
-        return $contactFields;
+        return [
+            Field::make('text', 'name', 'Název'),
+            Field::make('text', 'department', 'Katedra'),
+            Field::make('text', 'faculty', 'Fakulta'),
+            Field::make('text', 'university', 'Univerzita'),
+            Field::make('text', 'street', 'Ulice'),
+            Field::make('text', 'house_number', 'Číslo popisné')->set_attribute('type', 'number'),
+            Field::make('text', 'postal_code', 'Směrovací číslo'),
+            Field::make('text', 'city', 'Město'),
+            Field::make('text', 'phone', 'Telefon'),
+            Field::make('text', 'fax', 'Fax'),
+            Field::make('text', 'e_mail', 'E-mail'),
+            Field::make('text', 'gps', 'GPS'),
+            $subDepartments,
+        ];
     }
 }
