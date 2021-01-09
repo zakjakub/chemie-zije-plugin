@@ -32,7 +32,6 @@ class ChemieZijePlugin
 
     final public function crbLoad(): void
     {
-        require_once('vendor/autoload.php');
         Carbon_Fields::boot();
     }
 }
