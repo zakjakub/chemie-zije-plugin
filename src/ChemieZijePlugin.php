@@ -24,7 +24,7 @@ class ChemieZijePlugin
     {
         $mainSettings = Container::make('theme_options', 'Nastavení webu');
         $mainSettings->add_fields([Field::make('text', 'example_option_1')]);
-        $contactSettings = Container::make('theme_options', 'Nastavení webu');
+        $contactSettings = Container::make('theme_options', 'Kontakt');
         assert($contactSettings instanceof Container\Theme_Options_Container);
         $contactSettings->set_page_parent($mainSettings);
         $contactSettings->add_fields(
