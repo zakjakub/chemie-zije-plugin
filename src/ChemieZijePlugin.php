@@ -10,6 +10,14 @@ class ChemieZijePlugin
 {
     public function __construct()
     {
+        add_action('init', [$this, 'registerContactPostType']);
+        add_action('after_setup_theme', [$this, 'loadCarbonFields']);
+        add_action('carbon_fields_register_fields', [$this, 'registerOptionsFields']);
+        add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
+    }
+
+    final public function registerContactPostType(): void
+    {
         register_taxonomy_for_object_type(
             'sub_department',
             'contact_person'
@@ -32,9 +40,6 @@ class ChemieZijePlugin
                 'taxonomies'  => ['sub_department'],
             ]
         );
-        add_action('after_setup_theme', [$this, 'loadCarbonFields']);
-        add_action('carbon_fields_register_fields', [$this, 'registerOptionsFields']);
-        add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
     }
 
     final public function loadCarbonFields(): void
