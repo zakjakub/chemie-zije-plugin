@@ -10,6 +10,28 @@ class ChemieZijePlugin
 {
     public function __construct()
     {
+        register_taxonomy_for_object_type(
+            'sub_department',
+            'contact_person'
+        );
+        register_post_type(
+            'contact_person',
+            [
+                'label'       => 'Kontaktní osoby',
+                'description' => 'Osoby uvedené na stránkce s kontakty',
+                'public'      => true,
+                'menu_icon'   => 'dashicons-groups',
+                'supports'    => [
+                    'title',
+                    'editor',
+                    'revisions',
+                    'page-attributes',
+                    'thumbnail',
+                    'custom-fields',
+                ],
+                'taxonomies'  => ['sub_department'],
+            ]
+        );
         add_action('after_setup_theme', [$this, 'loadCarbonFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerOptionsFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
@@ -50,7 +72,9 @@ class ChemieZijePlugin
 
     final public function registerContactFields(): void
     {
-        Container::make('post_meta', 'Custom Data')->where('post_type', '=', 'page')->add_fields(
+        $contactFields = Container::make('post_meta', 'Údaje o osobě');
+        $contactFields->where('post_type', '=', 'contact_person');
+        $contactFields->add_fields(
             [
                 Field::make('text', 'name', 'Celé jméno'),
                 Field::make('text', 'position', 'Pozice'),
