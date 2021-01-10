@@ -8,11 +8,11 @@ use Carbon_Fields\Field;
 
 class ChemieZijePlugin
 {
-
     public function __construct()
     {
         add_action('after_setup_theme', [$this, 'loadCarbonFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerOptionsFields']);
+        add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
     }
 
     final public function loadCarbonFields(): void
@@ -32,24 +32,6 @@ class ChemieZijePlugin
 
     final public function getContactFields(): array
     {
-        $persons = Field::make('complex', 'persons', 'Osoby')->add_fields(
-            'person',
-            [
-                Field::make('text', 'name', 'Celé jméno'),
-                Field::make('text', 'position', 'Pozice'),
-                Field::make('text', 'phone', 'Telefon'),
-                Field::make('text', 'fax', 'Fax'),
-                Field::make('text', 'e_mail', 'E-mail'),
-            ],
-        );
-        $subDepartments = Field::make('complex', 'sub_departments', 'Oddělení')->add_fields(
-            'department',
-            [
-                Field::make('text', 'name', 'Název'),
-                $persons,
-            ],
-        );
-
         return [
             Field::make('text', 'name', 'Název'),
             Field::make('text', 'department', 'Katedra'),
@@ -63,7 +45,20 @@ class ChemieZijePlugin
             Field::make('text', 'fax', 'Fax'),
             Field::make('text', 'e_mail', 'E-mail'),
             Field::make('text', 'gps', 'GPS'),
-            $subDepartments,
         ];
+    }
+
+    final public function registerContactFields(): void
+    {
+        Container::make('post_meta', 'Custom Data')->where('post_type', '=', 'page')->add_fields(
+            [
+                Field::make('text', 'name', 'Celé jméno'),
+                Field::make('text', 'position', 'Pozice'),
+                Field::make('text', 'phone', 'Telefon'),
+                Field::make('text', 'fax', 'Fax'),
+                Field::make('text', 'e_mail', 'E-mail'),
+                Field::make('image', 'image', 'Fotografie'),
+            ]
+        );
     }
 }
