@@ -31,7 +31,7 @@ class ChemieZijePlugin
                 'all_items'          => __('Všechny kontaktní osoby'),
                 'view_item'          => __('Zobrazit kontaktní osobu'),
                 'add_new_item'       => __('Přidat kontaktní osobu'),
-                'add_new'            => __('Přidat novou'),
+                'add_new'            => __('Přidat novou osobu'),
                 'edit_item'          => __('Upravit kontaktní osobu'),
                 'update_item'        => __('Aktualizovat kontaktní osobu'),
                 'search_items'       => __('Vyhledat kontaktní osobu'),
@@ -131,7 +131,6 @@ class ChemieZijePlugin
         $contactFields->where('post_type', '=', 'contact_person');
         $contactFields->add_fields(
             [
-                Field::make('text', 'name', 'Celé jméno'),
                 Field::make('text', 'position', 'Pozice'),
                 Field::make('text', 'phone', 'Telefon'),
                 Field::make('text', 'fax', 'Fax'),
