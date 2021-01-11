@@ -58,11 +58,11 @@ class ChemieZijePlugin
             'can_export'          => true,
             'exclude_from_search' => false,
             'yarpp_support'       => true,
-            'taxonomies'          => ['post_tag'],
+            'taxonomies'          => ['contact_person'],
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ];
-        register_post_type('deals', $args);
+        register_post_type('contact_person', $args);
     }
 
     final public function registerContactSubDepartmentTaxonomy(): void
