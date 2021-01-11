@@ -19,26 +19,25 @@ class ChemieZijePlugin
 
     final public function registerCustomPostType(): void
     {
-        $labels = [
-            'name'               => __('Kontaktní osoby'),
-            'singular_name'      => __('Kontaktní osoba'),
-            'menu_name'          => __('Kontaktní osoby'),
-            'parent_item_colon'  => __('Nadřazená kontaktní osoba'),
-            'all_items'          => __('Všechny kontaktní osoby'),
-            'view_item'          => __('Zobrazit kontaktní osobu'),
-            'add_new_item'       => __('Přidat kontaktní osobu'),
-            'add_new'            => __('Přidat novou'),
-            'edit_item'          => __('Upravit kontaktní osobu'),
-            'update_item'        => __('Aktualizovat kontaktní osobu'),
-            'search_items'       => __('Vyhledat kontaktní osobu'),
-            'not_found'          => __('Nenalezeno'),
-            'not_found_in_trash' => __('Nenalezeno v odstraněných'),
-        ];
-        $args   = [
+        $args = [
             'label'               => __('contact_person'),
             'description'         => __('Osoby uvedené na stránce s kontakty'),
             'menu_icon'           => 'dashicons-groups',
-            'labels'              => $labels,
+            'labels'              => [
+                'name'               => __('Kontaktní osoby'),
+                'singular_name'      => __('Kontaktní osoba'),
+                'menu_name'          => __('Kontaktní osoby'),
+                'parent_item_colon'  => __('Nadřazená kontaktní osoba'),
+                'all_items'          => __('Všechny kontaktní osoby'),
+                'view_item'          => __('Zobrazit kontaktní osobu'),
+                'add_new_item'       => __('Přidat kontaktní osobu'),
+                'add_new'            => __('Přidat novou'),
+                'edit_item'          => __('Upravit kontaktní osobu'),
+                'update_item'        => __('Aktualizovat kontaktní osobu'),
+                'search_items'       => __('Vyhledat kontaktní osobu'),
+                'not_found'          => __('Nenalezeno'),
+                'not_found_in_trash' => __('Nenalezeno v odstraněných'),
+            ],
             'supports'            => [
                 'title',
                 'editor',
@@ -67,25 +66,24 @@ class ChemieZijePlugin
 
     final public function registerContactSubDepartmentTaxonomy(): void
     {
-        $labels = [
-            'name'              => _x('Oddělení', 'taxonomy general name'),
-            'singular_name'     => _x('Oddělení', 'taxonomy singular name'),
-            'search_items'      => __('Hledat oddělení'),
-            'all_items'         => __('Všechna oddělení'),
-            'parent_item'       => __('Nadřazené oddělení'),
-            'parent_item_colon' => __('Nadřazené oddělení:'),
-            'edit_item'         => __('Upravit oddělení'),
-            'update_item'       => __('Aktualizovat oddělení'),
-            'add_new_item'      => __('Přidat nové oddělení'),
-            'new_item_name'     => __('Název nového oddělení'),
-            'menu_name'         => __('Oddělení'),
-        ];
         register_taxonomy(
             'sub_department',
             ['contact_person'],
             [
                 'hierarchical'      => true,
-                'labels'            => $labels,
+                'labels'            => [
+                    'name'              => _x('Oddělení', 'taxonomy general name'),
+                    'singular_name'     => _x('Oddělení', 'taxonomy singular name'),
+                    'search_items'      => __('Hledat oddělení'),
+                    'all_items'         => __('Všechna oddělení'),
+                    'parent_item'       => __('Nadřazené oddělení'),
+                    'parent_item_colon' => __('Nadřazené oddělení:'),
+                    'edit_item'         => __('Upravit oddělení'),
+                    'update_item'       => __('Aktualizovat oddělení'),
+                    'add_new_item'      => __('Přidat nové oddělení'),
+                    'new_item_name'     => __('Název nového oddělení'),
+                    'menu_name'         => __('Oddělení'),
+                ],
                 'show_ui'           => true,
                 'show_admin_column' => true,
                 'query_var'         => true,
