@@ -103,7 +103,7 @@ class ChemieZijePlugin
         $contactSettings = Container::make('theme_options', 'Kontakt na katedru');
         $contactSettings->add_fields(
             [
-                Field::make('complex', 'contact')->add_fields('kontakt', [
+                Field::make('complex', 'contact', 'Kontakt')->add_fields('kontakt', [
                     Field::make('text', 'name', 'Název'),
                     Field::make('text', 'department', 'Katedra'),
                     Field::make('text', 'faculty', 'Fakulta'),
