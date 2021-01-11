@@ -107,27 +107,22 @@ class ChemieZijePlugin
         $contactSettings->set_page_parent($mainSettings);
         $contactSettings->add_fields(
             [
-                Field::make('complex', 'contact')->add_fields('contact', ...$this->getContactFields()),
+                Field::make('complex', 'contact')->add_fields('contact', [
+                    Field::make('text', 'name', 'Název'),
+                    Field::make('text', 'department', 'Katedra'),
+                    Field::make('text', 'faculty', 'Fakulta'),
+                    Field::make('text', 'university', 'Univerzita'),
+                    Field::make('text', 'street', 'Ulice'),
+                    Field::make('text', 'house_number', 'Číslo popisné')->set_attribute('type', 'number'),
+                    Field::make('text', 'postal_code', 'Směrovací číslo'),
+                    Field::make('text', 'city', 'Město'),
+                    Field::make('text', 'phone', 'Telefon'),
+                    Field::make('text', 'fax', 'Fax'),
+                    Field::make('text', 'e_mail', 'E-mail'),
+                    Field::make('text', 'gps', 'GPS'),
+                ])
             ]
         );
-    }
-
-    final public function getContactFields(): array
-    {
-        return [
-            Field::make('text', 'name', 'Název'),
-            Field::make('text', 'department', 'Katedra'),
-            Field::make('text', 'faculty', 'Fakulta'),
-            Field::make('text', 'university', 'Univerzita'),
-            Field::make('text', 'street', 'Ulice'),
-            Field::make('text', 'house_number', 'Číslo popisné')->set_attribute('type', 'number'),
-            Field::make('text', 'postal_code', 'Směrovací číslo'),
-            Field::make('text', 'city', 'Město'),
-            Field::make('text', 'phone', 'Telefon'),
-            Field::make('text', 'fax', 'Fax'),
-            Field::make('text', 'e_mail', 'E-mail'),
-            Field::make('text', 'gps', 'GPS'),
-        ];
     }
 
     final public function registerContactFields(): void
