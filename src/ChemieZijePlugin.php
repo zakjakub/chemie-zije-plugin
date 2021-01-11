@@ -70,7 +70,6 @@ class ChemieZijePlugin
             'sub_department',
             ['contact_person'],
             [
-                'hierarchical'      => true,
                 'labels'            => [
                     'name'              => _x('Oddělení', 'taxonomy general name'),
                     'singular_name'     => _x('Oddělení', 'taxonomy singular name'),
@@ -84,6 +83,7 @@ class ChemieZijePlugin
                     'new_item_name'     => __('Název nového oddělení'),
                     'menu_name'         => __('Oddělení'),
                 ],
+                'hierarchical'      => false,
                 'show_ui'           => true,
                 'show_admin_column' => true,
                 'query_var'         => true,
