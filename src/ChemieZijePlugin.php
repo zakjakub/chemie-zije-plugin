@@ -116,7 +116,7 @@ class ChemieZijePlugin
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ];
-        register_post_type('chemical_nomenclature', $args);
+        register_post_type('chem_nomenclature', $args);
     }
 
     final public function registerChemicalCalculationCategoryPost(): void
@@ -163,7 +163,7 @@ class ChemieZijePlugin
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ];
-        register_post_type('chemical_calculation_category', $args);
+        register_post_type('calculation_category', $args);
     }
 
     final public function registerChemicalIndustryMaterialPost(): void
@@ -210,7 +210,7 @@ class ChemieZijePlugin
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ];
-        register_post_type('chemical_industry_material', $args);
+        register_post_type('industry_material', $args);
     }
 
     final public function registerIndustrialChemistryFieldPost(): void
@@ -257,7 +257,7 @@ class ChemieZijePlugin
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ];
-        register_post_type('chemical_industry_field', $args);
+        register_post_type('industry_field', $args);
     }
 
     final public function registerContactSubDepartmentTaxonomy(): void
