@@ -318,7 +318,7 @@ class ChemieZijePlugin
     {
         $complexField = Field::make('complex', 'contact', 'Kontakt');
         assert($complexField instanceof Field\Complex_Field);
-        $complexField?->add_fields(
+        $complexField->add_fields(
             'address',
             'Adresa',
             [
