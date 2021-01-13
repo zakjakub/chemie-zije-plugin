@@ -46,6 +46,9 @@ class ChemieZijePlugin
                 'not_found'          => __('Osoba nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných osobách'),
             ],
+            'rewrite'             => [
+                'slug' => 'osoby',
+            ],
             'supports'            => [
                 'title',
                 'editor',
@@ -93,6 +96,9 @@ class ChemieZijePlugin
                 'search_items'       => __('Vyhledat chemické názvosloví'),
                 'not_found'          => __('Chemické názvosloví nenalezeno'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných názvoslovích'),
+            ],
+            'rewrite'             => [
+                'slug' => 'chemicke-nazvoslovi',
             ],
             'supports'            => [
                 'title',
@@ -142,6 +148,9 @@ class ChemieZijePlugin
                 'not_found'          => __('Kategorie chemických výpočtů nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných kategoriích chemických výpočtů'),
             ],
+            'rewrite'             => [
+                'slug' => 'kategorie-chemickych-vypoctu',
+            ],
             'supports'            => [
                 'title',
                 'editor',
@@ -190,6 +199,9 @@ class ChemieZijePlugin
                 'not_found'          => __('Surovina chemického průmyslu nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných surovinách chemického průmyslu'),
             ],
+            'rewrite'             => [
+                'slug' => 'suroviny-chemickeho-prumyslu',
+            ],
             'supports'            => [
                 'title',
                 'editor',
@@ -237,6 +249,9 @@ class ChemieZijePlugin
                 'search_items'       => __('Vyhledat oblast průmyslové chemie'),
                 'not_found'          => __('Oblast průmyslové chemie nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných oblast průmyslové chemie'),
+            ],
+            'rewrite'             => [
+                'slug' => 'prumyslova-chemie',
             ],
             'supports'            => [
                 'title',
@@ -301,29 +316,28 @@ class ChemieZijePlugin
 
     final public function registerContactFields(): void
     {
-        $contactSettings = Container::make('theme_options', 'Kontakt na katedru');
-        $contactSettings->add_fields(
+        $complexField = Field::make('complex', 'contact', 'Kontakt');
+        assert($complexField instanceof Field\Complex_Field);
+        $complexField?->add_fields(
+            'address',
+            'Adresa',
             [
-                Field::make('complex', 'contact', 'Kontakt')->add_fields(
-                    'address',
-                    'Adresa',
-                    [
-                        Field::make('text', 'name', 'Název'),
-                        Field::make('text', 'department', 'Katedra'),
-                        Field::make('text', 'faculty', 'Fakulta'),
-                        Field::make('text', 'university', 'Univerzita'),
-                        Field::make('text', 'street', 'Ulice'),
-                        Field::make('text', 'house_number', 'Číslo popisné')->set_attribute('type', 'number'),
-                        Field::make('text', 'postal_code', 'Směrovací číslo'),
-                        Field::make('text', 'city', 'Město'),
-                        Field::make('text', 'phone', 'Telefon'),
-                        Field::make('text', 'fax', 'Fax'),
-                        Field::make('text', 'e_mail', 'E-mail'),
-                        Field::make('text', 'gps', 'GPS'),
-                    ]
-                ),
+                Field::make('text', 'name', 'Název'),
+                Field::make('text', 'department', 'Katedra'),
+                Field::make('text', 'faculty', 'Fakulta'),
+                Field::make('text', 'university', 'Univerzita'),
+                Field::make('text', 'street', 'Ulice'),
+                Field::make('text', 'house_number', 'Číslo popisné')->set_attribute('type', 'number'),
+                Field::make('text', 'postal_code', 'Směrovací číslo'),
+                Field::make('text', 'city', 'Město'),
+                Field::make('text', 'phone', 'Telefon'),
+                Field::make('text', 'fax', 'Fax'),
+                Field::make('text', 'e_mail', 'E-mail'),
+                Field::make('text', 'gps', 'GPS'),
             ]
         );
+        $contactSettings = Container::make('theme_options', 'Kontakt na katedru');
+        $contactSettings->add_fields([$complexField]);
     }
 
     final public function registerContactPersonPostFields(): void
