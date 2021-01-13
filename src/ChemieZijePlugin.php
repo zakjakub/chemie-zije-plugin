@@ -200,7 +200,7 @@ class ChemieZijePlugin
                 'not_found_in_trash' => __('Nenalezeno v odstraněných surovinách chemického průmyslu'),
             ],
             'rewrite'             => [
-                'slug' => 'suroviny-chemickeho-prumyslu',
+                'slug' => 'surovina-chemickeho-prumyslu',
             ],
             'supports'            => [
                 'title',
