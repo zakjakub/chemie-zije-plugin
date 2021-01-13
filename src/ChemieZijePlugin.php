@@ -46,9 +46,6 @@ class ChemieZijePlugin
                 'not_found'          => __('Osoba nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných osobách'),
             ],
-            'rewrite'             => [
-                'slug' => 'osoby',
-            ],
             'supports'            => [
                 'title',
                 'editor',
@@ -96,9 +93,6 @@ class ChemieZijePlugin
                 'search_items'       => __('Vyhledat chemické názvosloví'),
                 'not_found'          => __('Chemické názvosloví nenalezeno'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných názvoslovích'),
-            ],
-            'rewrite'             => [
-                'slug' => 'chemicke-nazvoslovi',
             ],
             'supports'            => [
                 'title',
@@ -148,9 +142,6 @@ class ChemieZijePlugin
                 'not_found'          => __('Kategorie chemických výpočtů nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných kategoriích chemických výpočtů'),
             ],
-            'rewrite'             => [
-                'slug' => 'kategorie-chemickych-vypoctu',
-            ],
             'supports'            => [
                 'title',
                 'editor',
@@ -181,7 +172,7 @@ class ChemieZijePlugin
     final public function registerChemicalIndustryMaterialPost(): void
     {
         $args = [
-            'label'               => __('chemical_industry_materials'),
+            'label'               => __('industry_material'),
             'description'         => __('Jednotlivé suroviny chemického průmyslu'),
             'menu_icon'           => 'dashicons-editor-contract',
             'labels'              => [
@@ -198,9 +189,6 @@ class ChemieZijePlugin
                 'search_items'       => __('Vyhledat surovinu chemického průmyslu'),
                 'not_found'          => __('Surovina chemického průmyslu nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných surovinách chemického průmyslu'),
-            ],
-            'rewrite'             => [
-                'slug' => 'surovina-chemickeho-prumyslu',
             ],
             'supports'            => [
                 'title',
@@ -249,9 +237,6 @@ class ChemieZijePlugin
                 'search_items'       => __('Vyhledat oblast průmyslové chemie'),
                 'not_found'          => __('Oblast průmyslové chemie nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných oblast průmyslové chemie'),
-            ],
-            'rewrite'             => [
-                'slug' => 'prumyslova-chemie',
             ],
             'supports'            => [
                 'title',
