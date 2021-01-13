@@ -23,6 +23,7 @@ class ChemieZijePlugin
         add_action('carbon_fields_register_fields', [$this, 'registerPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerContactPersonPostFields']);
+        add_action('carbon_fields_register_fields', [$this, 'registerIndustryMaterialPostFields']);
     }
 
     final public function registerContactPersonPost(): void
@@ -190,6 +191,9 @@ class ChemieZijePlugin
                 'not_found'          => __('Surovina chemického průmyslu nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných surovinách chemického průmyslu'),
             ],
+            "rewrite" => [
+                "slug" => "material",
+            ],
             'supports'            => [
                 'title',
                 'editor',
@@ -346,6 +350,17 @@ class ChemieZijePlugin
         $contactFields->add_fields(
             [
                 Field::make('image', 'menu_image', 'Obrázek do dlaždice v menu (klipart)'),
+            ]
+        );
+    }
+
+    final public function registerIndustryMaterialPostFields(): void
+    {
+        $industryMaterialFields = Container::make('post_meta', 'Nastavení suroviny');
+        $industryMaterialFields->where('post_type', '=', 'industry_material');
+        $industryMaterialFields->add_fields(
+            [
+                Field::make('image', 'material_image', 'Obrázek suroviny'),
             ]
         );
     }
