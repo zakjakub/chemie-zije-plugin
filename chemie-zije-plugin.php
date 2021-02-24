@@ -1,12 +1,11 @@
 <?php
 /**
  * Plugin Name: CHEMIE ŽIJE!
+ * Description: Plugin pro webové stránky Chemie žije!
+ * Author: Jakub Zak
+ * Author URI: https://jakubzak.cz
  */
 
-use Carbon_Fields\Container;
-use Carbon_Fields\Field;
 use Zakjakub\ChemieZijePlugin\ChemieZijePlugin;
 
-//
-// Initialize plugin:
 new ChemieZijePlugin();
