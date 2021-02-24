@@ -32,15 +32,13 @@ class ChemieZijePlugin
 
     final public function registerContactPersonPostType(): void
     {
-        $class = ContactPersonPostType::class;
-        add_action('init', [$class, 'registerPostType'], 0);
-        add_action('carbon_fields_register_fields', [$class, 'registerContactPersonPostFields']);
+        add_action('init', [ContactPersonPostType::class, 'registerPostType'], 0);
+        add_action('carbon_fields_register_fields', [ContactPersonPostType::class, 'registerContactPersonPostFields']);
     }
 
     final public function registerChemicalNomenclaturePostType(): void
     {
-        $class = ChemicalNomenclaturePostType::class;
-        add_action('init', [$class, 'registerPostType'], 0);
+        add_action('init', [ChemicalNomenclaturePostType::class, 'registerPostType'], 0);
     }
 
     final public function registerChemicalCalculationCategoryPost(): void
