@@ -1,6 +1,6 @@
 {
   "name": "zakjakub/chemie-zije-plugin",
-  "description": "Plugin for \"CHEMIE ŽIJE!\" WordPress website.",
+  "description": "Plugin for 'CHEMIE ŽIJE!' WordPress website.",
   "type": "wordpress-plugin",
   "license": "proprietary",
   "minimum-stability": "dev",
@@ -24,7 +24,7 @@
     "htmlburger/carbon-fields": "^v3.2"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-master",
+    "roave/security-advisories": "dev-latest",
     "squizlabs/php_codesniffer": "^3.5.8",
     "roots/wordpress": "^5.6",
     "automattic/wordbless": "^0.1.0"
