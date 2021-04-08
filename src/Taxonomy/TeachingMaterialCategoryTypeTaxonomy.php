@@ -3,13 +3,13 @@
 namespace Zakjakub\ChemieZijePlugin\Taxonomy;
 
 use WP_Error;
-use WP_Post_Type;
+use WP_Taxonomy;
 
 class TeachingMaterialCategoryTypeTaxonomy
 {
     public const TAXONOMY = 'teach_mat_cat_type';
 
-    final public static function registerTaxonomy(): WP_Error|WP_Post_Type
+    final public static function registerTaxonomy(): WP_Error|WP_Taxonomy
     {
         return register_taxonomy(
             self::TAXONOMY,
