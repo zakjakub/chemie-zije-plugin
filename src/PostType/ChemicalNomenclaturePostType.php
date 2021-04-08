@@ -4,7 +4,7 @@
  * @noinspection UnknownInspectionInspection
  */
 
-namespace Zakjakub\ChemieZijePlugin\PostTypes;
+namespace Zakjakub\ChemieZijePlugin\PostType;
 
 use WP_Error;
 use WP_Post_Type;
