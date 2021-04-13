@@ -11,6 +11,7 @@ use Zakjakub\ChemieZijePlugin\PostType\ChemicalNomenclaturePostType;
 use Zakjakub\ChemieZijePlugin\PostType\ContactPersonPostType;
 use Zakjakub\ChemieZijePlugin\PostType\StudyMaterialCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialCategoryPostType;
+use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialPostType;
 use Zakjakub\ChemieZijePlugin\Taxonomy\ContactSubDepartmentTaxonomy;
 use Zakjakub\ChemieZijePlugin\Taxonomy\TeachingMaterialCategoryTypeTaxonomy;
 
@@ -22,6 +23,7 @@ class ChemieZijePlugin
         $this->registerChemicalNomenclaturePostType();
         $this->registerChemicalCalculationCategoryPost();
         $this->registerTeachingMaterialCategoryPost();
+        $this->registerTeachingMaterialPost();
         $this->registerStudyMaterialCategoryPost();
         $this->registerChemicalIndustryMaterialPost();
         $this->registerIndustrialChemistryFieldPost();
@@ -51,6 +53,11 @@ class ChemieZijePlugin
     final public function registerTeachingMaterialCategoryPost(): void
     {
         add_action('init', [TeachMaterialCategoryPostType::class, 'registerPostType'], 0);
+    }
+
+    final public function registerTeachingMaterialPost(): void
+    {
+        add_action('init', [TeachMaterialPostType::class, 'registerPostType'], 0);
     }
 
     final public function registerStudyMaterialCategoryPost(): void
