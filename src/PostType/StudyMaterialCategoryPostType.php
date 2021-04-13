@@ -33,7 +33,7 @@ class StudyMaterialCategoryPostType
                     'not_found_in_trash' => __('Nenalezeno v odstraněných kategoriích studijních materiálů'),
                 ],
                 'rewrite'             => [
-                    'slug' => 'studijni-material',
+                    'slug' => 'kategorie-studijnich-materialu',
                 ],
                 'supports'            => [
                     'title',
