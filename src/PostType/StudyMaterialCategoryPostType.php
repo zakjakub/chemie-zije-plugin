@@ -20,7 +20,7 @@ class StudyMaterialCategoryPostType
                 'labels'              => [
                     'name'               => __('Kategorie studijních materiálů'),
                     'singular_name'      => __('Kategorie studijních materiálů'),
-                    'menu_name'          => __('Kategorie stud. mat.'),
+                    'menu_name'          => __('Kategorie studijních materiálů'),
                     'parent_item_colon'  => __('Nadřazená kategorie studijních materiálů'),
                     'all_items'          => __('Všechny kategorie studijních materiálů'),
                     'view_item'          => __('Zobrazit Kategorii studijních materiálů'),
