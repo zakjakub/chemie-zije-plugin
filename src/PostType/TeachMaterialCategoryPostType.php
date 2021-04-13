@@ -33,7 +33,7 @@ class TeachMaterialCategoryPostType
                     'not_found_in_trash' => __('Nenalezeno v odstraněných kategoriích výukových materiálů'),
                 ],
                 'rewrite'             => [
-                    'slug' => 'vyukove-materialy',
+                    'slug' => 'kategorie-vyukovych-materialu',
                 ],
                 'supports'            => [
                     'title',

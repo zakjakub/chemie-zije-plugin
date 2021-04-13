@@ -20,7 +20,7 @@ class StudyMaterialCategoryPostType
                 'labels'              => [
                     'name'               => __('Kategorie studijních materiálů'),
                     'singular_name'      => __('Kategorie studijních materiálů'),
-                    'menu_name'          => __('Kategorie studijních materiálů'),
+                    'menu_name'          => __('Kategorie stud. mat.'),
                     'parent_item_colon'  => __('Nadřazená kategorie studijních materiálů'),
                     'all_items'          => __('Všechny kategorie studijních materiálů'),
                     'view_item'          => __('Zobrazit Kategorii studijních materiálů'),
@@ -55,7 +55,7 @@ class StudyMaterialCategoryPostType
                 'can_export'          => true,
                 'exclude_from_search' => false,
                 'yarpp_support'       => true,
-                'taxonomies'          => [/*'contact_person'*/],
+                'taxonomies'          => [],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
             ]
