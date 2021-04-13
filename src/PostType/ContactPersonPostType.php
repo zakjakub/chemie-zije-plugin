@@ -1,8 +1,4 @@
 <?php
-/**
- * @noinspection PhpUnused
- * @noinspection UnknownInspectionInspection
- */
 
 namespace Zakjakub\ChemieZijePlugin\PostType;
 
@@ -37,6 +33,9 @@ class ContactPersonPostType
                     'search_items'       => __('Vyhledat kontaktní osobu'),
                     'not_found'          => __('Osoba nenalezena'),
                     'not_found_in_trash' => __('Nenalezeno v odstraněných osobách'),
+                ],
+                'rewrite'             => [
+                    'slug' => 'kontaktni-osoba',
                 ],
                 'supports'            => [
                     'title',

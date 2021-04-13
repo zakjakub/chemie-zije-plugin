@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/src/PostType/ContactPersonPostType.php">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/src/PostType/StudyMaterialCategoryPostType.php">
           <value>
             <Attribute>
