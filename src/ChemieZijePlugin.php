@@ -99,30 +99,22 @@ class ChemieZijePlugin
 
     final public function registerContactFields(): void
     {
-        $complexField = Field::make('complex', 'contact', 'Kontakt');
-        assert($complexField instanceof Field\Complex_Field);
-        $complexField->add_fields(
-            'address',
-            'Adresa',
-            [
-                Field::make('text', 'name', 'Název'),
-                Field::make('text', 'department', 'Katedra'),
-                Field::make('text', 'faculty', 'Fakulta'),
-                Field::make('text', 'university', 'Univerzita'),
-                Field::make('text', 'street', 'Ulice'),
-                Field::make('text', 'house_number', 'Číslo popisné')->set_attribute('type', 'number'),
-                Field::make('text', 'postal_code', 'Směrovací číslo'),
-                Field::make('text', 'city', 'Město'),
-                Field::make('text', 'phone', 'Telefon'),
-                Field::make('text', 'fax', 'Fax'),
-                Field::make('text', 'e_mail', 'E-mail'),
-                Field::make('text', 'gps', 'GPS'),
-            ]
-        );
         $contactSettings = Container::make('theme_options', 'Kontakt na katedru');
-        $contactSettings->add_fields([$complexField]);
+        $contactSettings->add_fields([
+            Field::make('text', 'name', 'Název'),
+            Field::make('text', 'department', 'Katedra'),
+            Field::make('text', 'faculty', 'Fakulta'),
+            Field::make('text', 'university', 'Univerzita'),
+            Field::make('text', 'street', 'Ulice'),
+            Field::make('text', 'house_number', 'Číslo popisné')->set_attribute('type', 'number'),
+            Field::make('text', 'postal_code', 'Směrovací číslo'),
+            Field::make('text', 'city', 'Město'),
+            Field::make('text', 'phone', 'Telefon'),
+            Field::make('text', 'fax', 'Fax'),
+            Field::make('text', 'e_mail', 'E-mail'),
+            Field::make('text', 'gps', 'GPS'),
+        ]);
     }
-
 
     final public function registerPostFields(): void
     {

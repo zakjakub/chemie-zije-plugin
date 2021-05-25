@@ -5,12 +5,12 @@
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="Zakjakub\ChemieZijePlugin\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/roots/wordpress-core-installer" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/automattic/wordbless" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/squizlabs/php_codesniffer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/wpackio/enqueue" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/htmlburger/carbon-fields" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/automattic/wordbless" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/roots/wordpress-core-installer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
