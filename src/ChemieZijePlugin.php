@@ -147,8 +147,8 @@ class ChemieZijePlugin
         assert($complexField instanceof Field\Complex_Field);
         $complexField->add_fields(
             [
-                Field::make('rich_text', 'solved_calculation', 'Zadání'),
-                Field::make('rich_text', 'solved_calculation', 'Řešení'),
+                Field::make('rich_text', 'assignment', 'Zadání'),
+                Field::make('rich_text', 'solution', 'Řešení'),
             ]
         );
         $industryMaterialFields->add_fields([$complexField]);
