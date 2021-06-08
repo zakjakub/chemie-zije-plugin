@@ -7,7 +7,7 @@ use WP_Post_Type;
 
 class ChemicalCalculationCategoryPostType
 {
-    public const POST_TYPE = 'calculation_category';
+    public const POST_TYPE = 'equation_category';
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
