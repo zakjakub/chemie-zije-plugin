@@ -30,6 +30,7 @@ class ChemieZijePlugin
         $this->registerIndustrialChemistryFieldPost();
         $this->registerContactSubDepartmentTaxonomy();
         $this->registerTeachingMaterialCategoryTypeTaxonomy();
+        $this->registerChemicalCalculationCategoryPostType();
         // Carbon fields
         add_action('after_setup_theme', [$this, 'loadCarbonFields']);
         $this->registerCarbonFields();
@@ -54,6 +55,11 @@ class ChemieZijePlugin
     final public function registerTeachingMaterialCategoryPost(): void
     {
         add_action('init', [TeachMaterialCategoryPostType::class, 'registerPostType'], 0);
+    }
+
+    final public function registerChemicalCalculationCategoryPostType(): void
+    {
+        add_action('init', [ChemicalCalculationCategoryPostType::class, 'registerPostType'], 0);
     }
 
     final public function registerTeachingMaterialPost(): void
