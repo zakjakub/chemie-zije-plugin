@@ -5,6 +5,7 @@ namespace Zakjakub\ChemieZijePlugin;
 use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
+use Zakjakub\ChemieZijePlugin\PostType\ChemicalCalculationCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalIndustryFieldPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalIndustryMaterialPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalNomenclaturePostType;
@@ -90,6 +91,7 @@ class ChemieZijePlugin
         add_action('carbon_fields_register_fields', [$this, 'registerPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerIndustryMaterialPostFields']);
+        add_action('carbon_fields_register_fields', [$this, 'registerChemicalCalculationPostFields']);
     }
 
     final public function loadCarbonFields(): void
@@ -135,5 +137,20 @@ class ChemieZijePlugin
                 Field::make('image', 'material_image', 'Obrázek suroviny'),
             ]
         );
+    }
+
+    final public function registerChemicalCalculationPostFields(): void
+    {
+        $industryMaterialFields = Container::make('post_meta', 'Řešené příklady');
+        $industryMaterialFields->where('post_type', '=', ChemicalCalculationCategoryPostType::POST_TYPE);
+        $complexField = Field::make('complex', 'solved_calculation', 'Řešený příklad');
+        assert($complexField instanceof Field\Complex_Field);
+        $complexField->add_fields(
+            [
+                Field::make('rich_text', 'solved_calculation', 'Zadání'),
+                Field::make('rich_text', 'solved_calculation', 'Řešení'),
+            ]
+        );
+        $industryMaterialFields->add_fields([$complexField]);
     }
 }
