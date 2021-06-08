@@ -5,7 +5,7 @@ namespace Zakjakub\ChemieZijePlugin\PostType;
 use WP_Error;
 use WP_Post_Type;
 
-class ChemicalCalculationCategoryPostType
+class ChemicalEquationCategoryPostType
 {
     public const POST_TYPE = 'equation_category';
 
