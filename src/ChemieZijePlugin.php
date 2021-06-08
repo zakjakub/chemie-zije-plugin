@@ -5,7 +5,7 @@ namespace Zakjakub\ChemieZijePlugin;
 use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
-use Zakjakub\ChemieZijePlugin\PostType\ChemicalEquationCategoryPostType;
+use Zakjakub\ChemieZijePlugin\PostType\EquationCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalIndustryFieldPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalIndustryMaterialPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalNomenclaturePostType;
@@ -59,7 +59,7 @@ class ChemieZijePlugin
 
     final public function registerChemicalCalculationCategoryPostType(): void
     {
-        add_action('init', [ChemicalEquationCategoryPostType::class, 'registerPostType'], 0);
+        add_action('init', [EquationCategoryPostType::class, 'registerPostType'], 0);
     }
 
     final public function registerTeachingMaterialPost(): void
@@ -148,7 +148,7 @@ class ChemieZijePlugin
     final public function registerEquationCategoryPostFields(): void
     {
         $industryMaterialFields = Container::make('post_meta', 'Řešené příklady');
-        $industryMaterialFields->where('post_type', '=', ChemicalEquationCategoryPostType::POST_TYPE);
+        $industryMaterialFields->where('post_type', '=', EquationCategoryPostType::POST_TYPE);
         $complexField = Field::make('complex', 'solved_calculation', 'Řešený příklad');
         assert($complexField instanceof Field\Complex_Field);
         $complexField->add_fields(
