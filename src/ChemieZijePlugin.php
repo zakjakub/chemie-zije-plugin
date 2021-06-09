@@ -149,7 +149,7 @@ class ChemieZijePlugin
     {
         $industryMaterialFields = Container::make('post_meta', 'Řešené příklady');
         $industryMaterialFields->where('post_type', '=', EquationCategoryPostType::POST_TYPE);
-        $complexField = Field::make('complex', 'solved_calculation', 'Řešený příklad');
+        $complexField = Field::make('complex', 'solved_equations', 'Řešený příklad');
         assert($complexField instanceof Field\Complex_Field);
         $complexField->add_fields(
             [
