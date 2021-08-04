@@ -20,14 +20,14 @@
   ],
   "require": {
     "php": ">=8.0",
-    "wpackio/enqueue": "^2.2",
+    "wpackio/enqueue": "^3.4",
     "htmlburger/carbon-fields": "^v3.3"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
     "squizlabs/php_codesniffer": "^3.5.8",
     "roots/wordpress": "^5.7",
-    "automattic/wordbless": "^0.1.0"
+    "automattic/wordbless": "^0.3"
   },
   "autoload": {
     "psr-4": {

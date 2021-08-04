@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@wpackio/scripts": "^5.0.0"
+    "@wpackio/scripts": "^6.4.0"
   },
   "scripts": {
     "bootstrap": "wpackio-scripts bootstrap"
