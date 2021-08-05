@@ -20,6 +20,7 @@
   ],
   "require": {
     "php": ">=8.0",
+    "timber/timber": "^2.x-dev",
     "wpackio/enqueue": "^3.4",
     "htmlburger/carbon-fields": "^v3.3"
   },

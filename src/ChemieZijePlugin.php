@@ -166,8 +166,8 @@ class ChemieZijePlugin
             Field::make('text', 'company_url', 'URL'),
             Field::make('text', 'company_phone', 'Telefon'),
             Field::make('text', 'company_email', 'E-mail'),
-            Field::make('image', 'company_logo', 'Obrázek suroviny'),
-            Field::make('image', 'company_image', 'Obrázek suroviny'),
+            Field::make('image', 'company_logo', 'Logo'),
+            Field::make('image', 'company_image', 'Obrázek'),
         ]);
         // Activities / oblasti průmyslu
         $activityField = Field::make('complex', 'activities', 'Oblasti průmyslu');
