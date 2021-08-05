@@ -5,11 +5,12 @@ namespace Zakjakub\ChemieZijePlugin;
 use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
-use Zakjakub\ChemieZijePlugin\PostType\EquationCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalIndustryFieldPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalIndustryMaterialPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalNomenclaturePostType;
 use Zakjakub\ChemieZijePlugin\PostType\ContactPersonPostType;
+use Zakjakub\ChemieZijePlugin\PostType\EquationCategoryPostType;
+use Zakjakub\ChemieZijePlugin\PostType\MapCompanyPostType;
 use Zakjakub\ChemieZijePlugin\PostType\StudyMaterialCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialPostType;
@@ -22,15 +23,15 @@ class ChemieZijePlugin
     {
         $this->registerContactPersonPostType();
         $this->registerChemicalNomenclaturePostType();
-        $this->registerChemicalCalculationCategoryPost();
         $this->registerTeachingMaterialCategoryPost();
         $this->registerTeachingMaterialPost();
+        $this->registerMapCompanyPost();
         $this->registerStudyMaterialCategoryPost();
         $this->registerChemicalIndustryMaterialPost();
         $this->registerIndustrialChemistryFieldPost();
         $this->registerContactSubDepartmentTaxonomy();
         $this->registerTeachingMaterialCategoryTypeTaxonomy();
-        $this->registerChemicalCalculationCategoryPostType();
+        $this->registerEquationCategoryPostType();
         // Carbon fields
         add_action('after_setup_theme', [$this, 'loadCarbonFields']);
         $this->registerCarbonFields();
@@ -47,24 +48,19 @@ class ChemieZijePlugin
         add_action('init', [ChemicalNomenclaturePostType::class, 'registerPostType'], 0);
     }
 
-    final public function registerChemicalCalculationCategoryPost(): void
-    {
-        add_action('init', [ChemicalNomenclaturePostType::class, 'registerPostType'], 0);
-    }
-
     final public function registerTeachingMaterialCategoryPost(): void
     {
         add_action('init', [TeachMaterialCategoryPostType::class, 'registerPostType'], 0);
     }
 
-    final public function registerChemicalCalculationCategoryPostType(): void
-    {
-        add_action('init', [EquationCategoryPostType::class, 'registerPostType'], 0);
-    }
-
     final public function registerTeachingMaterialPost(): void
     {
         add_action('init', [TeachMaterialPostType::class, 'registerPostType'], 0);
+    }
+
+    final public function registerMapCompanyPost(): void
+    {
+        add_action('init', [MapCompanyPostType::class, 'registerPostType'], 0);
     }
 
     final public function registerStudyMaterialCategoryPost(): void
@@ -92,12 +88,18 @@ class ChemieZijePlugin
         add_action('init', [TeachingMaterialCategoryTypeTaxonomy::class, 'registerTaxonomy'], 0);
     }
 
+    final public function registerEquationCategoryPostType(): void
+    {
+        add_action('init', [EquationCategoryPostType::class, 'registerPostType'], 0);
+    }
+
     final public function registerCarbonFields(): void
     {
         add_action('carbon_fields_register_fields', [$this, 'registerPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerIndustryMaterialPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerEquationCategoryPostFields']);
+        add_action('carbon_fields_register_fields', [$this, 'registerMapCompanyPostFields']);
     }
 
     final public function loadCarbonFields(): void
@@ -127,22 +129,18 @@ class ChemieZijePlugin
     final public function registerPostFields(): void
     {
         $contactFields = Container::make('post_meta', 'Nastavení stránky');
-        $contactFields->add_fields(
-            [
+        $contactFields->add_fields([
                 Field::make('image', 'menu_image', 'Obrázek do dlaždice v menu (klipart)'),
-            ]
-        );
+            ]);
     }
 
     final public function registerIndustryMaterialPostFields(): void
     {
         $industryMaterialFields = Container::make('post_meta', 'Nastavení suroviny');
         $industryMaterialFields->where('post_type', '=', 'industry_material');
-        $industryMaterialFields->add_fields(
-            [
+        $industryMaterialFields->add_fields([
                 Field::make('image', 'material_image', 'Obrázek suroviny'),
-            ]
-        );
+            ]);
     }
 
     final public function registerEquationCategoryPostFields(): void
@@ -151,12 +149,53 @@ class ChemieZijePlugin
         $industryMaterialFields->where('post_type', '=', EquationCategoryPostType::POST_TYPE);
         $complexField = Field::make('complex', 'solved_equations', 'Řešený příklad');
         assert($complexField instanceof Field\Complex_Field);
-        $complexField->add_fields(
-            [
+        $complexField->add_fields([
                 Field::make('rich_text', 'assignment', 'Zadání'),
                 Field::make('rich_text', 'solution', 'Řešení'),
-            ]
-        );
+            ]);
         $industryMaterialFields->add_fields([$complexField]);
+    }
+
+    final public function registerMapCompanyPostFields(): void
+    {
+        $mapCompanyFields = Container::make('post_meta', 'Informace o podniku');
+        $mapCompanyFields->where('post_type', '=', MapCompanyPostType::POST_TYPE);
+        $mapCompanyFields->add_fields([
+            Field::make('text', 'company_name', 'Název'),
+            Field::make('text', 'company_description', 'Popis'),
+            Field::make('text', 'company_url', 'URL'),
+            Field::make('text', 'company_phone', 'Telefon'),
+            Field::make('text', 'company_email', 'E-mail'),
+            Field::make('image', 'company_logo', 'Obrázek suroviny'),
+            Field::make('image', 'company_image', 'Obrázek suroviny'),
+        ]);
+        // Activities / oblasti průmyslu
+        $activityField = Field::make('complex', 'activities', 'Oblasti průmyslu');
+        assert($activityField instanceof Field\Complex_Field);
+        $activityField->add_fields([
+                Field::make('text', 'location_name', 'Název'),
+                Field::make('text', 'location_address', 'Adresa'),
+                Field::make('text', 'location_latitude', 'Zeměpisná šířka'),
+                Field::make('text', 'location_longitude', 'Zeměpisná délka'),
+            ]);
+        $mapCompanyFields->add_fields([$activityField]);
+        // Locations / provozovny
+        $locationField = Field::make('complex', 'locations', 'Provozovny');
+        assert($locationField instanceof Field\Complex_Field);
+        $locationField->add_fields([
+                Field::make('text', 'location_name', 'Název'),
+                Field::make('text', 'location_address', 'Adresa'),
+                Field::make('text', 'location_latitude', 'Zeměpisná šířka'),
+                Field::make('text', 'location_longitude', 'Zeměpisná délka'),
+            ]);
+        $mapCompanyFields->add_fields([$locationField]);
+        // Documents / pracovní listy
+        $documentField = Field::make('complex', 'documents', 'Dokumenty/pracovní listy');
+        assert($documentField instanceof Field\Complex_Field);
+        $documentField->add_fields([
+                Field::make('text', 'document_name', 'Název'),
+                Field::make('file', 'document_file', 'Soubor'),
+            ]);
+        $mapCompanyFields->add_fields([$documentField]);
     }
 }
