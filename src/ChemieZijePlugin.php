@@ -173,10 +173,7 @@ class ChemieZijePlugin
         $activityField = Field::make('complex', 'activities', 'Oblasti průmyslu');
         assert($activityField instanceof Field\Complex_Field);
         $activityField->add_fields([
-                Field::make('text', 'location_name', 'Název'),
-                Field::make('text', 'location_address', 'Adresa'),
-                Field::make('text', 'location_latitude', 'Zeměpisná šířka'),
-                Field::make('text', 'location_longitude', 'Zeměpisná délka'),
+                Field::make('text', 'activity_name', 'Název'),
             ]);
         $mapCompanyFields->add_fields([$activityField]);
         // Locations / provozovny

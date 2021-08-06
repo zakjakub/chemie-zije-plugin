@@ -11,11 +11,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/htmlburger/carbon-fields" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/automattic/wordbless" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/roots/wordpress-core-installer" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/cache-extension" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/timber/timber" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
