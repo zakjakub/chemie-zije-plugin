@@ -161,9 +161,9 @@ class ChemieZijePlugin
         $mapCompanyFields = Container::make('post_meta', 'Informace o podniku');
         $mapCompanyFields->where('post_type', '=', MapCompanyPostType::POST_TYPE);
         $mapCompanyFields->add_fields([
-            Field::make('text', 'company_url', 'URL'),
-            Field::make('text', 'company_phone', 'Telefon'),
-            Field::make('text', 'company_email', 'E-mail'),
+            Field::make('text', 'company_url', 'URL')->set_width(33.3),
+            Field::make('text', 'company_phone', 'Telefon')->set_width(33.3),
+            Field::make('text', 'company_email', 'E-mail')->set_width(33.3),
             Field::make('image', 'company_logo', 'Logo')->set_required(true),
         ]);
         // Activities / oblasti průmyslu
@@ -177,18 +177,18 @@ class ChemieZijePlugin
         $locationField = Field::make('complex', 'locations', 'Provozovny');
         assert($locationField instanceof Field\Complex_Field);
         $locationField->add_fields([
-            Field::make('text', 'location_name', 'Název')->set_required(true),
-            Field::make('text', 'location_address', 'Adresa')->set_required(true),
-            Field::make('text', 'location_latitude', 'Zeměpisná šířka')->set_required(true),
-            Field::make('text', 'location_longitude', 'Zeměpisná délka')->set_required(true),
+            Field::make('text', 'location_name', 'Název')->set_required(true)->set_width(50),
+            Field::make('text', 'location_address', 'Adresa')->set_required(true)->set_width(50),
+            Field::make('text', 'location_latitude', 'Zeměpisná šířka')->set_required(true)->set_width(50),
+            Field::make('text', 'location_longitude', 'Zeměpisná délka')->set_required(true)->set_width(50),
         ]);
         $mapCompanyFields->add_fields([$locationField]);
         // Documents / pracovní listy
         $documentField = Field::make('complex', 'documents', 'Dokumenty/pracovní listy');
         assert($documentField instanceof Field\Complex_Field);
         $documentField->add_fields([
-            Field::make('text', 'document_name', 'Název')->set_required(true),
-            Field::make('file', 'document_file', 'Soubor')->set_required(true),
+            Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
+            Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
         ]);
         $mapCompanyFields->add_fields([$documentField]);
     }
