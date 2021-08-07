@@ -130,8 +130,8 @@ class ChemieZijePlugin
     {
         $contactFields = Container::make('post_meta', 'Nastavení stránky');
         $contactFields->add_fields([
-                Field::make('image', 'menu_image', 'Obrázek do dlaždice v menu (klipart)'),
-            ]);
+            Field::make('image', 'menu_image', 'Obrázek do dlaždice v menu (klipart)'),
+        ]);
     }
 
     final public function registerIndustryMaterialPostFields(): void
@@ -139,8 +139,8 @@ class ChemieZijePlugin
         $industryMaterialFields = Container::make('post_meta', 'Nastavení suroviny');
         $industryMaterialFields->where('post_type', '=', 'industry_material');
         $industryMaterialFields->add_fields([
-                Field::make('image', 'material_image', 'Obrázek suroviny'),
-            ]);
+            Field::make('image', 'material_image', 'Obrázek suroviny'),
+        ]);
     }
 
     final public function registerEquationCategoryPostFields(): void
@@ -150,9 +150,9 @@ class ChemieZijePlugin
         $complexField = Field::make('complex', 'solved_equations', 'Řešený příklad');
         assert($complexField instanceof Field\Complex_Field);
         $complexField->add_fields([
-                Field::make('rich_text', 'assignment', 'Zadání'),
-                Field::make('rich_text', 'solution', 'Řešení'),
-            ]);
+            Field::make('rich_text', 'assignment', 'Zadání'),
+            Field::make('rich_text', 'solution', 'Řešení'),
+        ]);
         $industryMaterialFields->add_fields([$complexField]);
     }
 
@@ -161,38 +161,35 @@ class ChemieZijePlugin
         $mapCompanyFields = Container::make('post_meta', 'Informace o podniku');
         $mapCompanyFields->where('post_type', '=', MapCompanyPostType::POST_TYPE);
         $mapCompanyFields->add_fields([
-            Field::make('text', 'company_name', 'Název'),
-            Field::make('text', 'company_description', 'Popis'),
             Field::make('text', 'company_url', 'URL'),
             Field::make('text', 'company_phone', 'Telefon'),
             Field::make('text', 'company_email', 'E-mail'),
-            Field::make('image', 'company_logo', 'Logo'),
-            Field::make('image', 'company_image', 'Obrázek'),
+            Field::make('image', 'company_logo', 'Logo')->set_required(true),
         ]);
         // Activities / oblasti průmyslu
         $activityField = Field::make('complex', 'activities', 'Oblasti průmyslu');
         assert($activityField instanceof Field\Complex_Field);
         $activityField->add_fields([
-                Field::make('text', 'activity_name', 'Název'),
-            ]);
+            Field::make('text', 'activity_name', 'Název')->set_required(true),
+        ]);
         $mapCompanyFields->add_fields([$activityField]);
         // Locations / provozovny
         $locationField = Field::make('complex', 'locations', 'Provozovny');
         assert($locationField instanceof Field\Complex_Field);
         $locationField->add_fields([
-                Field::make('text', 'location_name', 'Název'),
-                Field::make('text', 'location_address', 'Adresa'),
-                Field::make('text', 'location_latitude', 'Zeměpisná šířka'),
-                Field::make('text', 'location_longitude', 'Zeměpisná délka'),
-            ]);
+            Field::make('text', 'location_name', 'Název')->set_required(true),
+            Field::make('text', 'location_address', 'Adresa')->set_required(true),
+            Field::make('text', 'location_latitude', 'Zeměpisná šířka')->set_required(true),
+            Field::make('text', 'location_longitude', 'Zeměpisná délka')->set_required(true),
+        ]);
         $mapCompanyFields->add_fields([$locationField]);
         // Documents / pracovní listy
         $documentField = Field::make('complex', 'documents', 'Dokumenty/pracovní listy');
         assert($documentField instanceof Field\Complex_Field);
         $documentField->add_fields([
-                Field::make('text', 'document_name', 'Název'),
-                Field::make('file', 'document_file', 'Soubor'),
-            ]);
+            Field::make('text', 'document_name', 'Název')->set_required(true),
+            Field::make('file', 'document_file', 'Soubor')->set_required(true),
+        ]);
         $mapCompanyFields->add_fields([$documentField]);
     }
 }
