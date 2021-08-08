@@ -175,6 +175,7 @@ class ChemieZijePlugin
         $activityField->add_fields([
             Field::make('text', 'activity_name', 'Název')->set_required(true),
         ]);
+        $activityFields->add_fields([$activityField]);
         //
         // Locations / provozovny
         $locationFields = Container::make('post_meta', 'Provozovny');
@@ -187,6 +188,7 @@ class ChemieZijePlugin
             Field::make('text', 'location_latitude', 'Zeměpisná šířka')->set_required(true)->set_width(20),
             Field::make('text', 'location_longitude', 'Zeměpisná délka')->set_required(true)->set_width(20),
         ]);
+        $locationFields->add_fields([$locationField]);
         //
         // Documents / pracovní listy
         $documentFields = Container::make('post_meta', 'Dokumenty a pracovní listy');
@@ -197,5 +199,6 @@ class ChemieZijePlugin
             Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
             Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
         ]);
+        $documentFields->add_fields([$documentField]);
     }
 }
