@@ -161,19 +161,25 @@ class ChemieZijePlugin
         $mapCompanyFields = Container::make('post_meta', 'Informace o podniku');
         $mapCompanyFields->where('post_type', '=', MapCompanyPostType::POST_TYPE);
         $mapCompanyFields->add_fields([
-            Field::make('text', 'company_url', 'URL')->set_width(25),
-            Field::make('text', 'company_phone', 'Telefon')->set_width(25),
-            Field::make('text', 'company_email', 'E-mail')->set_width(25),
-            Field::make('image', 'company_logo', 'Logo')->set_required(true)->set_width(25),
+            Field::make('text', 'company_url', 'URL')->set_width(27),
+            Field::make('text', 'company_phone', 'Telefon')->set_width(27),
+            Field::make('text', 'company_email', 'E-mail')->set_width(27),
+            Field::make('image', 'company_logo', 'Logo')->set_required(true)->set_width(19),
         ]);
+        //
         // Activities / oblasti průmyslu
+        $activityFields = Container::make('post_meta', 'Oblasti průmyslu');
+        $activityFields->where('post_type', '=', MapCompanyPostType::POST_TYPE);
         $activityField = Field::make('complex', 'activities', 'Oblasti průmyslu');
         assert($activityField instanceof Field\Complex_Field);
         $activityField->add_fields([
             Field::make('text', 'activity_name', 'Název')->set_required(true),
         ]);
-        $mapCompanyFields->add_fields([$activityField]);
+        $activityFields->add_fields([$activityField]);
+        //
         // Locations / provozovny
+        $locationFields = Container::make('post_meta', 'Provozovny');
+        $locationFields->where('post_type', '=', MapCompanyPostType::POST_TYPE);
         $locationField = Field::make('complex', 'locations', 'Provozovny');
         assert($locationField instanceof Field\Complex_Field);
         $locationField->add_fields([
@@ -183,8 +189,11 @@ class ChemieZijePlugin
             Field::make('text', 'location_longitude', 'Zeměpisná délka')->set_required(true)->set_width(20),
         ]);
         $mapCompanyFields->add_fields([$locationField]);
+        //
         // Documents / pracovní listy
-        $documentField = Field::make('complex', 'documents', 'Dokumenty/pracovní listy');
+        $documentFields = Container::make('post_meta', 'Dokumenty a pracovní listy');
+        $documentFields->where('post_type', '=', MapCompanyPostType::POST_TYPE);
+        $documentField = Field::make('complex', 'documents', 'Dokumenty a pracovní listy');
         assert($documentField instanceof Field\Complex_Field);
         $documentField->add_fields([
             Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
