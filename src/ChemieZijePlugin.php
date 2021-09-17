@@ -35,6 +35,7 @@ class ChemieZijePlugin
         // Carbon fields
         add_action('after_setup_theme', [$this, 'loadCarbonFields']);
         $this->registerCarbonFields();
+        add_filter('mce_buttons_2', [$this, 'addTinyMceButtons']);
     }
 
     final public function registerContactPersonPostType(): void
@@ -139,7 +140,8 @@ class ChemieZijePlugin
         $industryMaterialFields = Container::make('post_meta', 'Nastavení suroviny');
         $industryMaterialFields->where('post_type', '=', 'industry_material');
         $industryMaterialFields->add_fields([
-            Field::make('image', 'material_image', 'Obrázek suroviny'),
+            Field::make('text', 'formula', 'Chemický vzorec')->set_width(30),
+            Field::make('image', 'material_image', 'Obrázek suroviny')->set_width(70),
         ]);
     }
 
@@ -200,5 +202,13 @@ class ChemieZijePlugin
             Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
         ]);
         $documentFields->add_fields([$documentField]);
+    }
+
+    final public function addTinyMceButtons(array $buttons): array
+    {
+        $buttons[] = 'superscript';
+        $buttons[] = 'subscript';
+
+        return $buttons;
     }
 }
