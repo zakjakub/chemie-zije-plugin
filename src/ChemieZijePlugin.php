@@ -140,8 +140,7 @@ class ChemieZijePlugin
         $industryMaterialFields = Container::make('post_meta', 'Nastavení suroviny');
         $industryMaterialFields->where('post_type', '=', 'industry_material');
         $industryMaterialFields->add_fields([
-            Field::make('rich_text', 'formula', 'Chemický vzorec')->set_width(50),
-            Field::make('image', 'material_image', 'Obrázek suroviny')->set_width(50),
+            Field::make('image', 'material_image', 'Obrázek suroviny'),
         ]);
     }
 
