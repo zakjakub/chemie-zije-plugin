@@ -154,15 +154,15 @@ class ChemieZijePlugin
 
     final public function registerTeachMaterialPostFields(): void
     {
-        $teachMaterialFields = Container::make('post_meta', 'Dokumenty');
-        $teachMaterialFields->where('post_type', '=', TeachMaterialPostType::POST_TYPE);
-        $complexField = Field::make('complex', 'files', 'Přiložený soubor');
-        assert($complexField instanceof Field\Complex_Field);
-        $complexField->add_fields([
-            Field::make('text', 'file_name', 'Název')->set_width(50),
-            Field::make('file', 'file_file', 'Soubor')->set_width(50),
+        $documentFields = Container::make('post_meta', 'Dokumenty a pracovní listy');
+        $documentFields->where('post_type', '=', TeachMaterialPostType::POST_TYPE);
+        $documentField = Field::make('complex', 'documents', 'Dokumenty a pracovní listy');
+        assert($documentField instanceof Field\Complex_Field);
+        $documentField->add_fields([
+            Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
+            Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
         ]);
-        $teachMaterialFields->add_fields([$complexField]);
+        $documentFields->add_fields([$documentField]);
     }
 
     final public function registerEquationCategoryPostFields(): void
