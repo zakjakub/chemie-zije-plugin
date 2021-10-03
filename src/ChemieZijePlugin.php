@@ -159,8 +159,8 @@ class ChemieZijePlugin
         $complexField = Field::make('complex', 'documents', 'Přiložený dokument');
         assert($complexField instanceof Field\Complex_Field);
         $complexField->add_fields([
-            Field::make('text', 'name', 'Název'),
-            Field::make('file', 'file', 'Soubor'),
+            Field::make('text', 'name', 'Název')->set_width(50),
+            Field::make('file', 'file', 'Soubor')->set_width(50),
         ]);
         $teachMaterialFields->add_fields([$complexField]);
     }
