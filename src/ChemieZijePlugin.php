@@ -16,6 +16,7 @@ use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialPostType;
 use Zakjakub\ChemieZijePlugin\Taxonomy\ContactSubDepartmentTaxonomy;
 use Zakjakub\ChemieZijePlugin\Taxonomy\TeachingMaterialCategoryTypeTaxonomy;
+use Zakjakub\ChemieZijePlugin\Taxonomy\TeachingMaterialSubTypeTaxonomy;
 
 class ChemieZijePlugin
 {
@@ -31,6 +32,7 @@ class ChemieZijePlugin
         $this->registerIndustrialChemistryFieldPost();
         $this->registerContactSubDepartmentTaxonomy();
         $this->registerTeachingMaterialCategoryTypeTaxonomy();
+        $this->registerTeachingMaterialSubTypeTaxonomy();
         $this->registerEquationCategoryPostType();
         // Carbon fields
         add_action('after_setup_theme', [$this, 'loadCarbonFields']);
@@ -89,6 +91,11 @@ class ChemieZijePlugin
         add_action('init', [TeachingMaterialCategoryTypeTaxonomy::class, 'registerTaxonomy'], 0);
     }
 
+    final public function registerTeachingMaterialSubTypeTaxonomy(): void
+    {
+        add_action('init', [TeachingMaterialSubTypeTaxonomy::class, 'registerTaxonomy'], 0);
+    }
+
     final public function registerEquationCategoryPostType(): void
     {
         add_action('init', [EquationCategoryPostType::class, 'registerPostType'], 0);
@@ -100,6 +107,7 @@ class ChemieZijePlugin
         add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerIndustryMaterialPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerEquationCategoryPostFields']);
+        add_action('carbon_fields_register_fields', [$this, 'registerTeachMaterialPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerMapCompanyPostFields']);
     }
 
@@ -142,6 +150,19 @@ class ChemieZijePlugin
         $industryMaterialFields->add_fields([
             Field::make('image', 'material_image', 'Obrázek suroviny'),
         ]);
+    }
+
+    final public function registerTeachMaterialPostFields(): void
+    {
+        $teachMaterialFields = Container::make('post_meta', 'Dokumenty');
+        $teachMaterialFields->where('post_type', '=', TeachMaterialPostType::POST_TYPE);
+        $complexField = Field::make('complex', 'documents', 'Přiložený dokument');
+        assert($complexField instanceof Field\Complex_Field);
+        $complexField->add_fields([
+            Field::make('text', 'name', 'Název'),
+            Field::make('file', 'file', 'Soubor'),
+        ]);
+        $teachMaterialFields->add_fields([$complexField]);
     }
 
     final public function registerEquationCategoryPostFields(): void
