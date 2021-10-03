@@ -156,11 +156,11 @@ class ChemieZijePlugin
     {
         $teachMaterialFields = Container::make('post_meta', 'Dokumenty');
         $teachMaterialFields->where('post_type', '=', TeachMaterialPostType::POST_TYPE);
-        $complexField = Field::make('complex', 'documents', 'Přiložený dokument');
+        $complexField = Field::make('complex', 'files', 'Přiložený soubor');
         assert($complexField instanceof Field\Complex_Field);
         $complexField->add_fields([
-            Field::make('text', 'name', 'Název')->set_width(50),
-            Field::make('file', 'file', 'Soubor')->set_width(50),
+            Field::make('text', 'file_name', 'Název')->set_width(50),
+            Field::make('file', 'file_file', 'Soubor')->set_width(50),
         ]);
         $teachMaterialFields->add_fields([$complexField]);
     }
