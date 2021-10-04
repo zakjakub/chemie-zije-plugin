@@ -55,7 +55,7 @@ class TeachMaterialCategoryPostType
                 'can_export'          => true,
                 'exclude_from_search' => false,
                 'yarpp_support'       => true,
-                'taxonomies'          => ['teach_mat_cat_type'],
+                'taxonomies'          => ['teach_mat_cat_type', 'teach_mat_sub_type'],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
             ]
