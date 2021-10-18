@@ -22,6 +22,9 @@ class ChemieZijePlugin
 {
     public function __construct()
     {
+        $this->registerContactSubDepartmentTaxonomy();
+        $this->registerTeachingMaterialCategoryTypeTaxonomy();
+        $this->registerTeachingMaterialSubTypeTaxonomy();
         $this->registerContactPersonPostType();
         $this->registerChemicalNomenclaturePostType();
         $this->registerTeachingMaterialCategoryPost();
@@ -30,9 +33,6 @@ class ChemieZijePlugin
         $this->registerStudyMaterialCategoryPost();
         $this->registerChemicalIndustryMaterialPost();
         $this->registerIndustrialChemistryFieldPost();
-        $this->registerContactSubDepartmentTaxonomy();
-        $this->registerTeachingMaterialCategoryTypeTaxonomy();
-        $this->registerTeachingMaterialSubTypeTaxonomy();
         $this->registerEquationCategoryPostType();
         // Carbon fields
         add_action('after_setup_theme', [$this, 'loadCarbonFields']);
