@@ -9,6 +9,11 @@ class TeachingMaterialSubTypeTaxonomy
 {
     public const TAXONOMY = 'teach_mat_sub_type';
 
+    final public static function register(): void
+    {
+        add_action('init', [__CLASS__, 'registerTaxonomy'], 0);
+    }
+
     final public static function registerTaxonomy(): WP_Error|WP_Taxonomy
     {
         return register_taxonomy(self::TAXONOMY, ['teach_material_cat', 'teach_material'], [
