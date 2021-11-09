@@ -31,7 +31,7 @@ class ChemieZijePlugin
         $this->registerTeachingMaterialPost();
         $this->registerMapCompanyPost();
         $this->registerStudyMaterialCategoryPost();
-        $this->registerChemicalIndustryMaterialPost();
+        ChemicalIndustryMaterialPostType::register();
         $this->registerIndustrialChemistryFieldPost();
         $this->registerEquationCategoryPostType();
         // Carbon fields
@@ -71,11 +71,6 @@ class ChemieZijePlugin
         add_action('init', [StudyMaterialCategoryPostType::class, 'registerPostType'], 0);
     }
 
-    final public function registerChemicalIndustryMaterialPost(): void
-    {
-        add_action('init', [ChemicalIndustryMaterialPostType::class, 'registerPostType'], 0);
-    }
-
     final public function registerIndustrialChemistryFieldPost(): void
     {
         add_action('init', [ChemicalIndustryFieldPostType::class, 'registerPostType'], 0);
@@ -105,7 +100,6 @@ class ChemieZijePlugin
     {
         add_action('carbon_fields_register_fields', [$this, 'registerPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerContactFields']);
-        add_action('carbon_fields_register_fields', [$this, 'registerIndustryMaterialPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerEquationCategoryPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerTeachMaterialPostFields']);
         add_action('carbon_fields_register_fields', [$this, 'registerMapCompanyPostFields']);
@@ -143,14 +137,6 @@ class ChemieZijePlugin
         ]);
     }
 
-    final public function registerIndustryMaterialPostFields(): void
-    {
-        $industryMaterialFields = Container::make('post_meta', 'Nastavení suroviny');
-        $industryMaterialFields->where('post_type', '=', 'industry_material');
-        $industryMaterialFields->add_fields([
-            Field::make('image', 'material_image', 'Obrázek suroviny'),
-        ]);
-    }
 
     final public function registerTeachMaterialPostFields(): void
     {
