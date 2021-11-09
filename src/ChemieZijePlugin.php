@@ -38,15 +38,15 @@ class ChemieZijePlugin
 
     final public static function registerPostTypes(): void
     {
-        ContactPersonPostType::register();
-        ChemicalNomenclaturePostType::register();
-        TeachMaterialCategoryPostType::register();
-        MapCompanyPostType::register();
         StudyMaterialCategoryPostType::register();
+        ChemicalNomenclaturePostType::register();
         ChemicalIndustryMaterialPostType::register();
-        TeachMaterialPostType::register();
+        MapCompanyPostType::register();
         ChemicalIndustryFieldPostType::register();
         EquationCategoryPostType::register();
+        TeachMaterialCategoryPostType::register();
+        TeachMaterialPostType::register();
+        ContactPersonPostType::register();
     }
 
     final public static function loadAndRegisterCarbonFields(): void

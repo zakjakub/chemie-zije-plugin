@@ -56,6 +56,7 @@ class ChemicalNomenclaturePostType
             'show_in_menu'        => true,
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
+            'show_in_rest'        => true,
             'has_archive'         => true,
             'can_export'          => true,
             'exclude_from_search' => false,
