@@ -68,16 +68,32 @@ class TeachMaterialPostType
         ]);
     }
 
-    final public function registerPostFields(): void
+    final public static function registerPostFields(): Container\Container
     {
-        $documentFields = Container::make('post_meta', 'Dokumenty a pracovní listy');
+        $documentFields = Container::make('post_meta', 'Dokumenty, prezentace a pracovní listy');
         $documentFields->where('post_type', '=', self::POST_TYPE);
-        $documentField = Field::make('complex', 'documents', 'Dokumenty a pracovní listy');
+        $documentField = Field::make('complex', 'documents', '[X] Dokumenty a pracovní listy');
         assert($documentField instanceof Field\Complex_Field);
         $documentField->add_fields([
             Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
             Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
         ]);
+        $presentationsField = Field::make('complex', 'presentations', 'Prezentace');
+        assert($presentationsField instanceof Field\Complex_Field);
+        $presentationsField->add_fields([
+            Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
+            Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
+        ]);
+        $handoutsField = Field::make('complex', 'handouts', 'Pracovní listy');
+        assert($handoutsField instanceof Field\Complex_Field);
+        $handoutsField->add_fields([
+            Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
+            Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
+        ]);
         $documentFields->add_fields([$documentField]);
+        $documentFields->add_fields([$presentationsField]);
+        $documentFields->add_fields([$handoutsField]);
+
+        return $documentFields;
     }
 }
