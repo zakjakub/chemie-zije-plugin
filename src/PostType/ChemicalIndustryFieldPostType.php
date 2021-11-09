@@ -74,7 +74,7 @@ class ChemicalIndustryFieldPostType
         assert($complexField instanceof Field\Complex_Field);
         $complexField->add_fields([
             Field::make('text', 'tab_title', 'Název')->set_width(100),
-            Field::make('text', 'tab_content', 'Obsah')->set_width(100),
+            Field::make('rich_text', 'tab_content', 'Obsah')->set_width(100),
         ]);
         $industryMaterialFields->add_fields([$complexField]);
     }
