@@ -13,9 +13,7 @@ class ChemicalNomenclaturePostType
 {
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
-        return register_post_type(
-            'chem_nomenclature',
-            [
+        return register_post_type('chem_nomenclature', [
                 'label'               => __('chemical_nomenclature'),
                 'description'         => __('Stránky o oblastech chemického názvosloví'),
                 'menu_icon'           => 'dashicons-media-document',
@@ -33,6 +31,7 @@ class ChemicalNomenclaturePostType
                     'search_items'       => __('Vyhledat chemické názvosloví'),
                     'not_found'          => __('Chemické názvosloví nenalezeno'),
                     'not_found_in_trash' => __('Nenalezeno v odstraněných názvoslovích'),
+                    'name_as_subtitle'   => 'Chemická názvosloví',
                 ],
                 'supports'            => [
                     'title',
@@ -57,7 +56,6 @@ class ChemicalNomenclaturePostType
                 'taxonomies'          => [],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
-            ]
-        );
+            ]);
     }
 }

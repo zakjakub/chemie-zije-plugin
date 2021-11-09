@@ -11,9 +11,7 @@ class ChemicalIndustryFieldPostType
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
-        return register_post_type(
-            self::POST_TYPE,
-            [
+        return register_post_type(self::POST_TYPE, [
                 'label'               => __('chemical_industry_fields'),
                 'description'         => __('Stránky o jednotlivých oblastech průmyslové chemie'),
                 'menu_icon'           => 'dashicons-hammer',
@@ -31,6 +29,7 @@ class ChemicalIndustryFieldPostType
                     'search_items'       => __('Vyhledat oblast průmyslové chemie'),
                     'not_found'          => __('Oblast průmyslové chemie nenalezena'),
                     'not_found_in_trash' => __('Nenalezeno v odstraněných oblast průmyslové chemie'),
+                    'name_as_subtitle'   => 'Průmyslová chemie',
                 ],
                 'supports'            => [
                     'title',
@@ -55,7 +54,6 @@ class ChemicalIndustryFieldPostType
                 'taxonomies'          => [/*'contact_person'*/],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
-            ]
-        );
+            ]);
     }
 }

@@ -13,9 +13,7 @@ class ContactPersonPostType
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
-        return register_post_type(
-            self::POST_TYPE,
-            [
+        return register_post_type(self::POST_TYPE, [
                 'label'               => __(self::POST_TYPE),
                 'description'         => __('Osoby uvedené na stránce s kontakty'),
                 'menu_icon'           => 'dashicons-groups',
@@ -60,8 +58,7 @@ class ContactPersonPostType
                 'taxonomies'          => [self::POST_TYPE],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
-            ]
-        );
+            ]);
     }
 
     final public static function registerContactPersonPostFields(): Container\Container
@@ -69,14 +66,12 @@ class ContactPersonPostType
         $contactFields = Container::make('post_meta', 'Údaje o osobě');
         $contactFields->where('post_type', '=', self::POST_TYPE);
 
-        return $contactFields->add_fields(
-            [
+        return $contactFields->add_fields([
                 Field::make('text', 'position', 'Pozice'),
                 Field::make('text', 'phone', 'Telefon'),
                 Field::make('text', 'fax', 'Fax'),
                 Field::make('text', 'e_mail', 'E-mail'),
                 Field::make('image', 'image', 'Fotografie'),
-            ]
-        );
+            ]);
     }
 }

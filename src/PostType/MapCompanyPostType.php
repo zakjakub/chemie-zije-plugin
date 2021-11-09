@@ -11,9 +11,7 @@ class MapCompanyPostType
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
-        return register_post_type(
-            self::POST_TYPE,
-            [
+        return register_post_type(self::POST_TYPE, [
                 'label'               => __('map_company'),
                 'description'         => __('Chemické podniky'),
                 'menu_icon'           => 'dashicons-building',
@@ -31,6 +29,7 @@ class MapCompanyPostType
                     'search_items'       => __('Vyhledat chemický podnik'),
                     'not_found'          => __('Chemický podnik nenalezen'),
                     'not_found_in_trash' => __('Nenalezeno v odstraněných chemických podnicích'),
+                    'name_as_subtitle'   => 'Chemické podniky',
                 ],
                 "rewrite"             => [
                     "slug" => "podnik",
@@ -58,7 +57,6 @@ class MapCompanyPostType
                 'taxonomies'          => [/*'contact_person'*/],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
-            ]
-        );
+            ]);
     }
 }

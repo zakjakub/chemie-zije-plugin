@@ -11,10 +11,7 @@ class ContactSubDepartmentTaxonomy
 
     final public static function registerTaxonomy(): WP_Error|WP_Taxonomy
     {
-        return register_taxonomy(
-            self::TAXONOMY,
-            ['contact_person'],
-            [
+        return register_taxonomy(self::TAXONOMY, ['contact_person'], [
                 'labels'            => [
                     'name'              => _x('Oddělení', 'taxonomy general name'),
                     'singular_name'     => _x('Oddělení', 'taxonomy singular name'),
@@ -34,7 +31,6 @@ class ContactSubDepartmentTaxonomy
                 'query_var'         => true,
                 'rewrite'           => ['slug' => 'type'],
                 'menu_icon'         => 'dashicons-groups',
-            ]
-        );
+            ]);
     }
 }

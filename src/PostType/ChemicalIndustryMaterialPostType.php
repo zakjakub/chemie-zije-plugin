@@ -37,6 +37,7 @@ class ChemicalIndustryMaterialPostType
                 'search_items'       => __('Vyhledat surovinu chemického průmyslu'),
                 'not_found'          => __('Surovina chemického průmyslu nenalezena'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných surovinách chemického průmyslu'),
+                'name_as_subtitle'   => 'Suroviny chemického průmyslu',
             ],
             "rewrite"             => [
                 "slug" => "material",

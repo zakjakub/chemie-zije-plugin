@@ -40,6 +40,21 @@ class ChemieZijePlugin
         add_filter('mce_buttons_2', [$this, 'addTinyMceButtons']);
     }
 
+    final public function registerContactSubDepartmentTaxonomy(): void
+    {
+        add_action('init', [ContactSubDepartmentTaxonomy::class, 'registerTaxonomy'], 0);
+    }
+
+    final public function registerTeachingMaterialCategoryTypeTaxonomy(): void
+    {
+        add_action('init', [TeachingMaterialCategoryTypeTaxonomy::class, 'registerTaxonomy'], 0);
+    }
+
+    final public function registerTeachingMaterialSubTypeTaxonomy(): void
+    {
+        add_action('init', [TeachingMaterialSubTypeTaxonomy::class, 'registerTaxonomy'], 0);
+    }
+
     final public function registerContactPersonPostType(): void
     {
         add_action('init', [ContactPersonPostType::class, 'registerPostType'], 0);
@@ -74,21 +89,6 @@ class ChemieZijePlugin
     final public function registerIndustrialChemistryFieldPost(): void
     {
         add_action('init', [ChemicalIndustryFieldPostType::class, 'registerPostType'], 0);
-    }
-
-    final public function registerContactSubDepartmentTaxonomy(): void
-    {
-        add_action('init', [ContactSubDepartmentTaxonomy::class, 'registerTaxonomy'], 0);
-    }
-
-    final public function registerTeachingMaterialCategoryTypeTaxonomy(): void
-    {
-        add_action('init', [TeachingMaterialCategoryTypeTaxonomy::class, 'registerTaxonomy'], 0);
-    }
-
-    final public function registerTeachingMaterialSubTypeTaxonomy(): void
-    {
-        add_action('init', [TeachingMaterialSubTypeTaxonomy::class, 'registerTaxonomy'], 0);
     }
 
     final public function registerEquationCategoryPostType(): void

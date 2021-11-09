@@ -11,9 +11,7 @@ class TeachMaterialCategoryPostType
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
-        return register_post_type(
-            self::POST_TYPE,
-            [
+        return register_post_type(self::POST_TYPE, [
                 'label'               => __('teaching_material_categories'),
                 'description'         => __('Stránky o kategoriích výukových materiálů'),
                 'menu_icon'           => 'dashicons-welcome-learn-more',
@@ -31,6 +29,7 @@ class TeachMaterialCategoryPostType
                     'search_items'       => __('Vyhledat kategorii výukových materiálů'),
                     'not_found'          => __('Kategorie výukových materiálů nenalezena'),
                     'not_found_in_trash' => __('Nenalezeno v odstraněných kategoriích výukových materiálů'),
+                    'name_as_subtitle'   => 'Výukové materiály',
                 ],
                 'rewrite'             => [
                     'slug' => 'kategorie-vyukovych-materialu',
@@ -58,7 +57,6 @@ class TeachMaterialCategoryPostType
                 'taxonomies'          => ['teach_mat_cat_type', 'teach_mat_sub_type'],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
-            ]
-        );
+            ]);
     }
 }

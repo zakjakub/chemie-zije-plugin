@@ -11,10 +11,7 @@ class TeachingMaterialCategoryTypeTaxonomy
 
     final public static function registerTaxonomy(): WP_Error|WP_Taxonomy
     {
-        return register_taxonomy(
-            self::TAXONOMY,
-            ['teach_material_cat', 'teach_material'],
-            [
+        return register_taxonomy(self::TAXONOMY, ['teach_material_cat', 'teach_material'], [
                 'labels'            => [
                     'name'              => _x('Typy výukových materiálů', 'taxonomy general name'),
                     'singular_name'     => _x('Typ výukového materiálu', 'taxonomy singular name'),
@@ -34,7 +31,6 @@ class TeachingMaterialCategoryTypeTaxonomy
                 'query_var'         => true,
                 'rewrite'           => ['slug' => 'type'],
                 'menu_icon'         => 'dashicons-welcome-learn-more',
-            ]
-        );
+            ]);
     }
 }

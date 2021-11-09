@@ -11,26 +11,25 @@ class TeachMaterialPostType
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
-        return register_post_type(
-            self::POST_TYPE,
-            [
+        return register_post_type(self::POST_TYPE, [
                 'label'               => __('teaching_materials'),
                 'description'         => __('Jednotlivé výukové materiály'),
                 'menu_icon'           => 'dashicons-welcome-learn-more',
                 'labels'              => [
-                    'name'               => __('Výukové materiály'),
-                    'singular_name'      => __('Výukový materiál'),
-                    'menu_name'          => __('Výukové materiály'),
-                    'parent_item_colon'  => __('Nadřazený výukový materiál'),
-                    'all_items'          => __('Všechny výukové materiály'),
-                    'view_item'          => __('Zobrazit výukový materiál'),
-                    'add_new_item'       => __('Přidat výukový materiál'),
-                    'add_new'            => __('Přidat nový výukový materiál'),
-                    'edit_item'          => __('Upravit výukový materiál'),
-                    'update_item'        => __('Aktualizovat výukový materiál'),
-                    'search_items'       => __('Vyhledat výukový materiál'),
-                    'not_found'          => __('Výukový materiál nenalezen'),
-                    'not_found_in_trash' => __('Nenalezeno v odstraněných výukových materiálech'),
+                    'name'                 => __('Výukové materiály'),
+                    'singular_name'        => __('Výukový materiál'),
+                    'menu_name'            => __('Výukové materiály'),
+                    'parent_item_colon'    => __('Nadřazený výukový materiál'),
+                    'all_items'            => __('Všechny výukové materiály'),
+                    'view_item'            => __('Zobrazit výukový materiál'),
+                    'add_new_item'         => __('Přidat výukový materiál'),
+                    'add_new'              => __('Přidat nový výukový materiál'),
+                    'edit_item'            => __('Upravit výukový materiál'),
+                    'update_item'          => __('Aktualizovat výukový materiál'),
+                    'search_items'         => __('Vyhledat výukový materiál'),
+                    'not_found'            => __('Výukový materiál nenalezen'),
+                    'not_found_in_trash'   => __('Nenalezeno v odstraněných výukových materiálech'),
+                    'category_as_subtitle' => true,
                 ],
                 'rewrite'             => [
                     'slug' => 'vyukovy-material',
@@ -58,7 +57,6 @@ class TeachMaterialPostType
                 'taxonomies'          => ['teach_mat_cat_type', 'teach_mat_sub_type'],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
-            ]
-        );
+            ]);
     }
 }

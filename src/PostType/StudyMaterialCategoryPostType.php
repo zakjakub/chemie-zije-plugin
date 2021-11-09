@@ -11,9 +11,7 @@ class StudyMaterialCategoryPostType
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
-        return register_post_type(
-            self::POST_TYPE,
-            [
+        return register_post_type(self::POST_TYPE, [
                 'label'               => __('study_material_categories'),
                 'description'         => __('Stránky o kategoriích studijních materiálů'),
                 'menu_icon'           => 'dashicons-welcome-learn-more',
@@ -31,7 +29,7 @@ class StudyMaterialCategoryPostType
                     'search_items'       => __('Vyhledat kategorii studijních materiálů'),
                     'not_found'          => __('Kategorie studijních materiálů nenalezena'),
                     'not_found_in_trash' => __('Nenalezeno v odstraněných kategoriích studijních materiálů'),
-                    'name_as_subtitle' => 'Studijní materiály',
+                    'name_as_subtitle'   => 'Studijní materiály',
                 ],
                 'rewrite'             => [
                     'slug' => 'kategorie-studijnich-materialu',
@@ -59,7 +57,6 @@ class StudyMaterialCategoryPostType
                 'taxonomies'          => [],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
-            ]
-        );
+            ]);
     }
 }

@@ -11,9 +11,7 @@ class EquationCategoryPostType
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
-        return register_post_type(
-            self::POST_TYPE,
-            [
+        return register_post_type(self::POST_TYPE, [
                 'label'               => __('chemical_calculation_categories'),
                 'description'         => __('Stránky o kategoriích chemických výpočtů'),
                 'menu_icon'           => 'dashicons-calculator',
@@ -31,6 +29,7 @@ class EquationCategoryPostType
                     'search_items'       => __('Vyhledat kategorii chemických výpočtů'),
                     'not_found'          => __('Kategorie chemických výpočtů nenalezena'),
                     'not_found_in_trash' => __('Nenalezeno v odstraněných kategoriích chemických výpočtů'),
+                    'name_as_subtitle'   => 'Chemické výpočty',
                 ],
                 'supports'            => [
                     'title',
@@ -55,7 +54,6 @@ class EquationCategoryPostType
                 'taxonomies'          => [/*'contact_person'*/],
                 'publicly_queryable'  => true,
                 'capability_type'     => 'page',
-            ]
-        );
+            ]);
     }
 }
