@@ -77,6 +77,9 @@ class ChemicalIndustryMaterialPostType
             Field::make('text', 'reference_id', 'Ref. ID')->set_width(15),
             Field::make('text', 'reference_text', 'Zdroj')->set_width(85),
         ]);
-        $industryMaterialFields->add_fields([$complexField]);
+        $industryMaterialFields->add_fields([
+            Field::make('text', 'alternative_names', 'Alternativní názvy'),
+            $complexField,
+        ]);
     }
 }
