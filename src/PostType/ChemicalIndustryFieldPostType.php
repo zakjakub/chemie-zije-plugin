@@ -38,7 +38,6 @@ class ChemicalIndustryFieldPostType
             ],
             'supports'            => [
                 'title',
-                'editor',
                 'author',
                 'thumbnail',
                 'excerpt',
