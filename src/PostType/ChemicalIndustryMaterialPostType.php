@@ -70,9 +70,9 @@ class ChemicalIndustryMaterialPostType
 
     final public static function registerFields(): void
     {
-        $industryMaterialFields = Container::make('post_meta', 'Literatura');
+        $industryMaterialFields = Container::make('post_meta', 'Nastavení suroviny');
         $industryMaterialFields->where('post_type', '=', self::POST_TYPE);
-        $complexField = Field::make('complex', 'references', 'Zdroj');
+        $complexField = Field::make('complex', 'references', 'Literatura');
         assert($complexField instanceof Field\Complex_Field);
         $complexField->add_fields([
             Field::make('text', 'reference_id', 'Ref. ID')->set_width(15),
