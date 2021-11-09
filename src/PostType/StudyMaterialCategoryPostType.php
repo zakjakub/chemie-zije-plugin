@@ -31,6 +31,7 @@ class StudyMaterialCategoryPostType
                     'search_items'       => __('Vyhledat kategorii studijních materiálů'),
                     'not_found'          => __('Kategorie studijních materiálů nenalezena'),
                     'not_found_in_trash' => __('Nenalezeno v odstraněných kategoriích studijních materiálů'),
+                    'name_as_subtitle' => 'Studijní materiály',
                 ],
                 'rewrite'             => [
                     'slug' => 'kategorie-studijnich-materialu',
