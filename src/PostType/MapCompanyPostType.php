@@ -14,7 +14,7 @@ class MapCompanyPostType
     final public static function register(): void
     {
         add_action('init', [__CLASS__, 'registerPostType'], 0);
-        add_action('carbon_fields_register_fields', [__CLASS__, 'registerMapCompanyPostFields']);
+        add_action('carbon_fields_register_fields', [__CLASS__, 'registerPostFields']);
     }
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
