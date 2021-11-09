@@ -65,7 +65,7 @@ class EquationCategoryPostType
         ]);
     }
 
-    final public function registerPostFields(): void
+    final public static function registerPostFields(): void
     {
         $industryMaterialFields = Container::make('post_meta', 'Řešené příklady');
         $industryMaterialFields->where('post_type', '=', self::POST_TYPE);
