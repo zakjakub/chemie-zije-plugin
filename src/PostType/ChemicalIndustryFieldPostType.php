@@ -2,6 +2,8 @@
 
 namespace Zakjakub\ChemieZijePlugin\PostType;
 
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
 use WP_Error;
 use WP_Post_Type;
 
@@ -12,6 +14,7 @@ class ChemicalIndustryFieldPostType
     final public static function register(): void
     {
         add_action('init', [__CLASS__, 'registerPostType'], 0);
+        add_action('carbon_fields_register_fields', [__CLASS__, 'registerFields']);
     }
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
@@ -61,5 +64,18 @@ class ChemicalIndustryFieldPostType
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ]);
+    }
+
+    final public static function registerFields(): void
+    {
+        $industryMaterialFields = Container::make('post_meta', 'Sekce/záložky');
+        $industryMaterialFields->where('post_type', '=', self::POST_TYPE);
+        $complexField = Field::make('complex', 'tabs', 'Sekce/záložky stránky');
+        assert($complexField instanceof Field\Complex_Field);
+        $complexField->add_fields([
+            Field::make('text', 'tab_title', 'Název')->set_width(100),
+            Field::make('text', 'tab_content', 'Obsah')->set_width(100),
+        ]);
+        $industryMaterialFields->add_fields([$complexField]);
     }
 }
