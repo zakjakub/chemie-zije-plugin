@@ -52,7 +52,6 @@ class ChemieZijePlugin
     final public static function loadAndRegisterCarbonFields(): void
     {
         add_action('after_setup_theme', [__CLASS__, 'loadCarbonFields']);
-        add_action('carbon_fields_register_fields', [__CLASS__, 'registerPostFields']);
         add_action('carbon_fields_register_fields', [__CLASS__, 'registerContactFields']);
     }
 
@@ -77,14 +76,6 @@ class ChemieZijePlugin
             Field::make('text', 'contact_fax', 'Fax'),
             Field::make('text', 'contact_e_mail', 'E-mail'),
             Field::make('text', 'contact_gps', 'GPS'),
-        ]);
-    }
-
-    final public static function registerPostFields(): void
-    {
-        $contactFields = Container::make('post_meta', 'Nastavení stránky');
-        $contactFields->add_fields([
-            Field::make('image', 'menu_image', 'Obrázek do dlaždice v menu (klipart)'),
         ]);
     }
 
