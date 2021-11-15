@@ -40,7 +40,7 @@ class ChemicalElementPostType
                 'name_as_subtitle'   => 'Chemické prvky',
             ],
             "rewrite"             => [
-                "slug" => "element",
+                "slug" => "prvek",
             ],
             'supports'            => [
                 'title',
