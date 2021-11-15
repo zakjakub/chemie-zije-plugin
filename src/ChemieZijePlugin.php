@@ -5,6 +5,7 @@ namespace Zakjakub\ChemieZijePlugin;
 use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
+use Zakjakub\ChemieZijePlugin\PostType\ChemicalElementPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalIndustryFieldPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalIndustryMaterialPostType;
 use Zakjakub\ChemieZijePlugin\PostType\ChemicalNomenclaturePostType;
@@ -41,6 +42,7 @@ class ChemieZijePlugin
         StudyMaterialCategoryPostType::register();
         ChemicalNomenclaturePostType::register();
         ChemicalIndustryMaterialPostType::register();
+        ChemicalElementPostType::register();
         MapCompanyPostType::register();
         ChemicalIndustryFieldPostType::register();
         EquationCategoryPostType::register();
