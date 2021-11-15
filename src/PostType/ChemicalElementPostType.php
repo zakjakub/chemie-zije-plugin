@@ -74,7 +74,7 @@ class ChemicalElementPostType
         $chemicalElementsFields = Container::make('post_meta', 'Nastavení chemického prvku');
         $chemicalElementsFields->where('post_type', '=', self::POST_TYPE);
         $chemicalElementsFields->add_fields([
-            Field::make('number', 'proton_number', 'Protonové číslo'),
+            Field::make('text', 'proton_number', 'Protonové číslo')->set_attribute('type', 'number')->set_attribute('min', 1)->set_attribute('max', 118),
         ]);
     }
 }
