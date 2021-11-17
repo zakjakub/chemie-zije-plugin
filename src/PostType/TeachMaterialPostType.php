@@ -73,6 +73,8 @@ class TeachMaterialPostType
     {
         self::registerDocumentsFieldsContainer();
         self::registerSymbolsFieldsContainer();
+        self::registerVideoFieldContainer();
+        self::registerTabsFieldsContainer();
     }
 
     final public static function registerDocumentsFieldsContainer(): void
@@ -113,5 +115,27 @@ class TeachMaterialPostType
             Field::make('image', 'symbol', 'Piktogram')->set_required(true),
         ]);
         $safetySymbolsContainer->add_fields([$safetySymbolsField]);
+    }
+
+    final public static function registerVideoFieldContainer(): void
+    {
+        $documentsContainer = Container::make('post_meta', 'Odkaz na YOuTube video');
+        $documentsContainer->where('post_type', '=', self::POST_TYPE);
+        $documentsContainer->add_fields([
+            Field::make('text', 'youtube_video_url', 'YouTube URL')->set_required(true),
+        ]);
+    }
+
+    final public static function registerTabsFieldsContainer(): void
+    {
+        $tabsFieldsContainer = Container::make('post_meta', 'Záložky s obsahem (k videím/pokusům)');
+        $tabsFieldsContainer->where('post_type', '=', self::POST_TYPE);
+        $tabsField = Field::make('complex', 'tabs', 'Záložky');
+        assert($tabsField instanceof Field\Complex_Field);
+        $tabsField->add_fields([
+            Field::make('text', 'title', 'Název')->set_required(true)->set_width(100),
+            Field::make('rich_text', 'content', 'Obsah')->set_required(true)->set_width(100),
+        ]);
+        $tabsFieldsContainer->add_fields([$tabsField]);
     }
 }
