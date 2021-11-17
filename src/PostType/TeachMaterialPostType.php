@@ -71,6 +71,12 @@ class TeachMaterialPostType
 
     final public static function registerPostFields(): void
     {
+        self::registerDocumentsFieldsContainer();
+        self::registerSymbolsFieldsContainer();
+    }
+
+    final public static function registerDocumentsFieldsContainer(): void
+    {
         $documentsContainer = Container::make('post_meta', 'Dokumenty, prezentace a pracovní listy');
         $documentsContainer->where('post_type', '=', self::POST_TYPE);
         $presentationsField = Field::make('complex', 'presentations', 'Prezentace');
@@ -79,22 +85,33 @@ class TeachMaterialPostType
             Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
             Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
         ]);
+        $documentsContainer->add_fields([$presentationsField]);
         $handoutsField = Field::make('complex', 'handouts', 'Pracovní listy');
         assert($handoutsField instanceof Field\Complex_Field);
         $handoutsField->add_fields([
             Field::make('text', 'document_name', 'Název')->set_required(true)->set_width(50),
             Field::make('file', 'document_file', 'Soubor')->set_required(true)->set_width(50),
         ]);
-        $documentsContainer->add_fields([$presentationsField]);
         $documentsContainer->add_fields([$handoutsField]);
-        // Symbols
-        $symbolsContainer = Container::make('post_meta', 'Náročnost a délka experimentu');
-        $symbolsContainer->where('post_type', '=', self::POST_TYPE);
-        $symbolsField = Field::make('complex', 'symbols', 'Symboly (délka, náročnost...)');
-        assert($symbolsField instanceof Field\Complex_Field);
-        $symbolsField->add_fields([
-            Field::make('image', 'symbol', 'Symbol')->set_required(true),
+    }
+
+    final public static function registerSymbolsFieldsContainer(): void
+    {
+        $difficultySymbolsContainer = Container::make('post_meta', 'Piktogramy');
+        $difficultySymbolsContainer->where('post_type', '=', self::POST_TYPE);
+        $difficultySymbolsField = Field::make('complex', 'difficulty_symbols', 'Délka a náročnost (piktogramy)');
+        assert($difficultySymbolsField instanceof Field\Complex_Field);
+        $difficultySymbolsField->add_fields([
+            Field::make('image', 'symbol', 'Piktogram')->set_required(true),
         ]);
-        $symbolsContainer->add_fields([$symbolsField]);
+        $difficultySymbolsContainer->add_fields([$difficultySymbolsField]);
+        $safetySymbolsContainer = Container::make('post_meta', 'Náročnost a délka experimentu');
+        $safetySymbolsContainer->where('post_type', '=', self::POST_TYPE);
+        $safetySymbolsField = Field::make('complex', 'safety_symbols', 'Bezpečnost (piktogramy)');
+        assert($safetySymbolsField instanceof Field\Complex_Field);
+        $safetySymbolsField->add_fields([
+            Field::make('image', 'symbol', 'Piktogram')->set_required(true),
+        ]);
+        $safetySymbolsContainer->add_fields([$safetySymbolsField]);
     }
 }
