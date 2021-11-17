@@ -99,22 +99,19 @@ class TeachMaterialPostType
 
     final public static function registerSymbolsFieldsContainer(): void
     {
-        $difficultySymbolsContainer = Container::make('post_meta', 'Piktogramy');
-        $difficultySymbolsContainer->where('post_type', '=', self::POST_TYPE);
+        $symbolsContainer = Container::make('post_meta', 'Piktogramy');
+        $symbolsContainer->where('post_type', '=', self::POST_TYPE);
         $difficultySymbolsField = Field::make('complex', 'difficulty_symbols', 'Délka a náročnost (piktogramy)');
         assert($difficultySymbolsField instanceof Field\Complex_Field);
         $difficultySymbolsField->add_fields([
             Field::make('image', 'symbol', 'Piktogram')->set_required(true),
         ]);
-        $difficultySymbolsContainer->add_fields([$difficultySymbolsField]);
-        $safetySymbolsContainer = Container::make('post_meta', 'Náročnost a délka experimentu');
-        $safetySymbolsContainer->where('post_type', '=', self::POST_TYPE);
         $safetySymbolsField = Field::make('complex', 'safety_symbols', 'Bezpečnost (piktogramy)');
         assert($safetySymbolsField instanceof Field\Complex_Field);
         $safetySymbolsField->add_fields([
             Field::make('image', 'symbol', 'Piktogram')->set_required(true),
         ]);
-        $safetySymbolsContainer->add_fields([$safetySymbolsField]);
+        $symbolsContainer->add_fields([$safetySymbolsField]);
     }
 
     final public static function registerVideoFieldContainer(): void
