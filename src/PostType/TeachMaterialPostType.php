@@ -106,6 +106,7 @@ class TeachMaterialPostType
         $difficultySymbolsField->add_fields([
             Field::make('image', 'symbol', 'Piktogram')->set_required(true),
         ]);
+        $symbolsContainer->add_fields([$difficultySymbolsField]);
         $safetySymbolsField = Field::make('complex', 'safety_symbols', 'Bezpečnost (piktogramy)');
         assert($safetySymbolsField instanceof Field\Complex_Field);
         $safetySymbolsField->add_fields([
