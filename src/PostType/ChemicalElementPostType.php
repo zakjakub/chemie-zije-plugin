@@ -39,9 +39,6 @@ class ChemicalElementPostType
                 'not_found_in_trash' => __('Nenalezeno v odstraněných prvcích'),
                 'name_as_subtitle'   => 'Chemické prvky',
             ],
-            "rewrite"             => [
-                "slug" => "prvek",
-            ],
             'supports'            => [
                 'title',
                 'editor',
