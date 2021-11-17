@@ -25,9 +25,7 @@ class ChemieZijePlugin
     {
         self::registerTaxonomies();
         self::registerPostTypes();
-        // Carbon fields
         self::loadAndRegisterCarbonFields();
-        add_filter('mce_buttons_2', [__CLASS__, 'addTinyMceButtons']);
     }
 
     final public static function registerTaxonomies(): void
@@ -79,16 +77,5 @@ class ChemieZijePlugin
             Field::make('text', 'contact_e_mail', 'E-mail'),
             Field::make('text', 'contact_gps', 'GPS'),
         ]);
-    }
-
-    final public static function addTinyMceButtons(mixed $buttons): array
-    {
-        if (!is_array($buttons)) {
-            $buttons = [];
-        }
-        $buttons[] = 'superscript';
-        $buttons[] = 'subscript';
-
-        return $buttons;
     }
 }
