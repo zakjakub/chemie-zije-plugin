@@ -131,8 +131,8 @@ class TeachMaterialPostType
         $tabsField = Field::make('complex', 'tabs', 'Záložky');
         assert($tabsField instanceof Field\Complex_Field);
         $tabsField->add_fields([
-            Field::make('text', 'title', 'Název')->set_required(true)->set_width(100),
-            Field::make('rich_text', 'content', 'Obsah')->set_required(true)->set_width(100),
+            Field::make('text', 'tab_title', 'Název')->set_required(true)->set_width(100),
+            Field::make('rich_text', 'tab_content', 'Obsah')->set_required(true)->set_width(100),
         ]);
         $tabsFieldsContainer->add_fields([$tabsField]);
     }
