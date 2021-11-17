@@ -81,8 +81,11 @@ class ChemieZijePlugin
         ]);
     }
 
-    final public static function addTinyMceButtons(array $buttons): array
+    final public static function addTinyMceButtons(mixed $buttons): array
     {
+        if (!is_array($buttons)) {
+            $buttons = [];
+        }
         $buttons[] = 'superscript';
         $buttons[] = 'subscript';
 
