@@ -36,6 +36,7 @@ class ContactSubDepartmentTaxonomy
             'query_var'         => true,
             'rewrite'           => ['slug' => 'type'],
             'menu_icon'         => 'dashicons-groups',
+            'show_in_rest'        => true,
         ]);
     }
 }
