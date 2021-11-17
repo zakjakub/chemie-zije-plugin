@@ -50,7 +50,7 @@ class ChemicalIndustryFieldPostType
                 'page-attributes',
             ],
             'public'              => true,
-            'hierarchical'        => false,
+            'hierarchical'        => true,
             'show_ui'             => true,
             'show_in_menu'        => true,
             'show_in_nav_menus'   => true,
