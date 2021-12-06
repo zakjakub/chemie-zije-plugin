@@ -120,7 +120,7 @@ class TeachMaterialPostType
         $documentsContainer = Container::make('post_meta', 'Odkaz na YOuTube video');
         $documentsContainer->where('post_type', '=', self::POST_TYPE);
         $documentsContainer->add_fields([
-            Field::make('text', 'youtube_video_url', 'YouTube URL')->set_required(true),
+            Field::make('text', 'youtube_video_url', 'YouTube URL'),
         ]);
     }
 
