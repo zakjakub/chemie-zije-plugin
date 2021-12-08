@@ -117,10 +117,10 @@ class TeachMaterialPostType
 
     final public static function registerVideoFieldContainer(): void
     {
-        $documentsContainer = Container::make('post_meta', 'Odkaz na YOuTube video');
+        $documentsContainer = Container::make('post_meta', 'Odkaz na YouTube video');
         $documentsContainer->where('post_type', '=', self::POST_TYPE);
         $documentsContainer->add_fields([
-            Field::make('text', 'youtube_video_url', 'YouTube URL'),
+            Field::make('text', 'youtube_video_url', 'Identifikátor videa na YouTube (např. 4i2EvdS2HJg)'),
         ]);
     }
 

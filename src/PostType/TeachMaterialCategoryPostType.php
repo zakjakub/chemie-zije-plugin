@@ -2,6 +2,8 @@
 
 namespace Zakjakub\ChemieZijePlugin\PostType;
 
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
 use WP_Error;
 use WP_Post_Type;
 
@@ -12,6 +14,7 @@ class TeachMaterialCategoryPostType
     final public static function register(): void
     {
         add_action('init', [__CLASS__, 'registerPostType'], 0);
+        add_action('carbon_fields_register_fields', [__CLASS__, 'registerPostFields']);
     }
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
@@ -64,5 +67,23 @@ class TeachMaterialCategoryPostType
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ]);
+    }
+
+    final public static function registerPostFields(): void
+    {
+        self::registerTabsFieldsContainer();
+    }
+
+    final public static function registerTabsFieldsContainer(): void
+    {
+        $tabsFieldsContainer = Container::make('post_meta', 'Náhledové obrázky k záložkám/kategoriím');
+        $tabsFieldsContainer->where('post_type', '=', self::POST_TYPE);
+        $tabsField = Field::make('complex', 'tab_thumbnails', 'Záložky');
+        assert($tabsField instanceof Field\Complex_Field);
+        $tabsField->add_fields([
+            Field::make('text', 'tab_slug', 'Identifikátor')->set_required(true)->set_width(50),
+            Field::make('image', 'tab_thumbnail', 'Náhledový obrázek')->set_required(true)->set_width(50),
+        ]);
+        $tabsFieldsContainer->add_fields([$tabsField]);
     }
 }
