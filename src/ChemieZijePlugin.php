@@ -12,6 +12,7 @@ use Zakjakub\ChemieZijePlugin\PostType\ChemicalNomenclaturePostType;
 use Zakjakub\ChemieZijePlugin\PostType\ContactPersonPostType;
 use Zakjakub\ChemieZijePlugin\PostType\EquationCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\MapCompanyPostType;
+use Zakjakub\ChemieZijePlugin\PostType\PostType;
 use Zakjakub\ChemieZijePlugin\PostType\StudyMaterialCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialPostType;
@@ -37,6 +38,7 @@ class ChemieZijePlugin
 
     final public static function registerPostTypes(): void
     {
+        PostType::register();
         StudyMaterialCategoryPostType::register();
         ChemicalNomenclaturePostType::register();
         ChemicalIndustryMaterialPostType::register();
