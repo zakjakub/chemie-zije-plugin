@@ -71,7 +71,17 @@ class ChemicalElementPostType
         $chemicalElementsFields = Container::make('post_meta', 'Nastavení chemického prvku');
         $chemicalElementsFields->where('post_type', '=', self::POST_TYPE);
         $chemicalElementsFields->add_fields([
-            Field::make('text', 'proton_number', 'Protonové číslo')->set_attribute('type', 'number')->set_attribute('min', 1)->set_attribute('max', 118),
+            $protonNumber = Field::make('text', 'proton_number', 'Protonové číslo'),
+            Field::make('rich_text', 'history', 'Historie'),
+            Field::make('rich_text', 'physico_chemical_properties', 'Fyzikálně chemické vlastnosti'),
+            Field::make('rich_text', 'chemical_properties', 'Chemické vlastnosti'),
+            Field::make('rich_text', 'compounds', 'Sloučeniny'),
+            Field::make('rich_text', 'preparation_and_production', 'Příprava a výroba'),
+            Field::make('rich_text', 'utilization', 'Využití'),
+            Field::make('rich_text', 'natural_occurrence', 'Výskyt v přírodě'),
+            Field::make('rich_text', 'biological_function', 'Biologická funkce'),
         ]);
+        $protonNumber->set_attribute('type', 'number');
+        $protonNumber->set_attribute('min', 1)->set_attribute('max', 118);
     }
 }
