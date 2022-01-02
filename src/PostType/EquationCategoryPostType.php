@@ -77,5 +77,10 @@ class EquationCategoryPostType
             Field::make('rich_text', 'solution', 'Řešení'),
         ]);
         $industryMaterialFields->add_fields([$complexField]);
+        $settingsFields = Container::make('post_meta', 'Nastavení kategorie výpočtů');
+        $settingsFields->where('post_type', '=', self::POST_TYPE);
+        $settingsFields->add_fields([
+            Field::make('checkbox', 'show_calculator', 'Zobrazit kalkulačku molekulární hmotnosti'),
+        ]);
     }
 }
