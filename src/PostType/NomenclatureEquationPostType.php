@@ -68,7 +68,7 @@ class NomenclatureEquationPostType
             'taxonomies'          => [
                 NomenclatureEquationCategoryTaxonomy::TAXONOMY,
             ],
-            'publicly_queryable'  => false,
+            'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ]);
     }
