@@ -36,7 +36,7 @@ class TeachingMaterialCategoryTypeTaxonomy
             'query_var'         => true,
             'rewrite'           => ['slug' => 'type'],
             'menu_icon'         => 'dashicons-welcome-learn-more',
-            'show_in_rest'        => true,
+            'show_in_rest'      => true,
         ]);
     }
 }

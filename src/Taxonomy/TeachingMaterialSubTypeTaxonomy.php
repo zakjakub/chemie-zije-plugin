@@ -36,7 +36,7 @@ class TeachingMaterialSubTypeTaxonomy
             'query_var'         => true,
             'rewrite'           => ['slug' => 'subtype'],
             'menu_icon'         => 'dashicons-welcome-learn-more',
-            'show_in_rest'        => true,
+            'show_in_rest'      => true,
         ]);
     }
 }
