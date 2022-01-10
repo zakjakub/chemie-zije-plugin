@@ -14,7 +14,7 @@ use Zakjakub\ChemieZijePlugin\Taxonomy\NomenclatureEquationCategoryTaxonomy;
 
 class NomenclatureEquationPostType
 {
-    public const POST_TYPE = 'nomenclature_equation';
+    public const POST_TYPE = 'nomenclat_equation';
 
     final public static function register(): void
     {
@@ -25,14 +25,14 @@ class NomenclatureEquationPostType
     final public static function registerPostType(): WP_Error|WP_Post_Type
     {
         return register_post_type(self::POST_TYPE, [
-            'label'               => __('nomenclature_equation'),
-            'description'         => __('Řešené příklady z oblasti názvosloví'),
+            'label'               => 'nomenclature_equation',
+            'description'         => 'Řešené příklady z oblasti názvosloví',
             'menu_icon'           => 'dashicons-media-document',
             'labels'              => [
-                'name'               => __('Názvosloví (řeš. příklad)'),
-                'singular_name'      => __('Názvosloví (řeš. příklad)'),
-                'menu_name'          => __('Názvosloví (řeš. příklad)'),
-                'parent_item_colon'  => __('Nadřazený řeš. příklad'),
+                'name'               => 'Názvosloví (řeš. příklad)',
+                'singular_name'      => 'Názvosloví (řeš. příklad)',
+                'menu_name'          => 'Názvosloví (řeš. příklad)',
+                'parent_item_colon'  => 'Nadřazený řeš. příklad',
                 'all_items'          => __('Všechny řeš. příklady (chemická názvosloví)'),
                 'view_item'          => __('Zobrazit řeš. příklad (chem. názvosloví)'),
                 'add_new_item'       => __('Přidat příklad (chem. názvosloví)'),
@@ -43,6 +43,9 @@ class NomenclatureEquationPostType
                 'not_found'          => __('Příklad (názvosloví) nenalezen'),
                 'not_found_in_trash' => __('Nenalezeno v odstraněných příkladech (chem. názvosloví)'),
                 'name_as_subtitle'   => 'Příklady (chem. názvosloví)',
+            ],
+            'rewrite'             => [
+                'slug' => 'nazvoslovi-reseny-priklad',
             ],
             'supports'            => [
                 'title',
