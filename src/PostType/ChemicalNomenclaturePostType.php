@@ -8,6 +8,7 @@ namespace Zakjakub\ChemieZijePlugin\PostType;
 
 use WP_Error;
 use WP_Post_Type;
+use Zakjakub\ChemieZijePlugin\Taxonomy\NomenclatureEquationCategoryTaxonomy;
 
 class ChemicalNomenclaturePostType
 {
@@ -61,7 +62,9 @@ class ChemicalNomenclaturePostType
             'can_export'          => true,
             'exclude_from_search' => false,
             'yarpp_support'       => true,
-            'taxonomies'          => [],
+            'taxonomies'          => [
+                NomenclatureEquationCategoryTaxonomy::TAXONOMY,
+            ],
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ]);
