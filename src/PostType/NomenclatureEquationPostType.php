@@ -80,10 +80,17 @@ class NomenclatureEquationPostType
 
     final public static function registerSolutionFieldContainer(): void
     {
-        $documentsContainer = Container::make('post_meta', 'Řešení');
+        $documentsContainer = Container::make('post_meta', 'Příklad');
         $documentsContainer->where('post_type', '=', self::POST_TYPE);
         $documentsContainer->add_fields([
             Field::make('rich_text', 'solution', 'Řešení příkladu'),
+            $levelField = Field::make('select', 'level', 'Obtížnost'),
+        ]);
+        assert($levelField instanceof Field\Select_Field);
+        $levelField->set_options([
+            '1' => 'Lehká',
+            '3' => 'Středně těžká',
+            '5' => 'Těžká',
         ]);
     }
 }
