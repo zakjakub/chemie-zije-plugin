@@ -71,7 +71,7 @@ class ChemicalNomenclaturePostType
         ]);
     }
 
-    final public function registerQueryVars(array $queryVars): array
+    final public static function registerQueryVars(array $queryVars): array
     {
         $queryVars[] = 'count';
         $queryVars[] = 'level';
