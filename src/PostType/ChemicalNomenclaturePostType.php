@@ -17,6 +17,7 @@ class ChemicalNomenclaturePostType
     final public static function register(): void
     {
         add_action('init', [__CLASS__, 'registerPostType'], 0);
+        add_filter('query_vars', [__CLASS__, 'registerQueryVars']);
     }
 
     final public static function registerPostType(): WP_Error|WP_Post_Type
@@ -68,5 +69,14 @@ class ChemicalNomenclaturePostType
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
         ]);
+    }
+
+    final public function registerQueryVars(array $queryVars): array
+    {
+        $queryVars[] = 'count';
+        $queryVars[] = 'level';
+        $queryVars[] = 'categories';
+
+        return $queryVars;
     }
 }
