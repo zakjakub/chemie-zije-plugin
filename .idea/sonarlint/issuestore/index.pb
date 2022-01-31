@@ -5,8 +5,6 @@ I
 src/PostType/PostType.php,8/f/8f3385b839d52da4f04a9351cb47c14e9f5cfa69
 X
 (src/PostType/ChemicalElementPostType.php,c/5/c57b210cb16999192caf58484ebf860839dad8ab
-Y
-)src/PostType/EquationCategoryPostType.php,1/1/11a0e9559f4e2506251a89476662d3fd7387438f
 ^
 .src/PostType/TeachMaterialCategoryPostType.php,8/b/8b5e2e43b3bd240d91b4c983f26dd26b00498970
 S

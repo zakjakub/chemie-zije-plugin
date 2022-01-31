@@ -81,6 +81,7 @@ class EquationCategoryPostType
         $settingsFields->where('post_type', '=', self::POST_TYPE);
         $settingsFields->add_fields([
             Field::make('checkbox', 'show_calculator', 'Zobrazit kalkulačku molekulární hmotnosti'),
+            Field::make('rich_text', 'calculator_description', 'Popisek ke kalkulačce molekulární hmotnosti'),
         ]);
     }
 }
