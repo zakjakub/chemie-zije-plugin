@@ -22,9 +22,5 @@ e
 .src/PostType/StudyMaterialCategoryPostType.php,5/9/59e1333849e473e61879e1393381c80b83663f81
 H
 src/ChemieZijePlugin.php,6/f/6f358e7ba9ed45c2c449996d4b1bc81c80c2841a
-]
--src/PostType/ChemicalNomenclaturePostType.php,9/3/9390906eb1f83cbc91d1be7b35efd7e014bd1403
-]
--src/PostType/NomenclatureEquationPostType.php,9/a/9afc08452683362a7af137f68a6aa3856c8d7de1
-Y
-)src/PostType/EquationCategoryPostType.php,1/1/11a0e9559f4e2506251a89476662d3fd7387438f
+S
+#src/PostType/MapCompanyPostType.php,0/b/0b87b9f1cc8926b38bc8dab0a7872e16496855d5
