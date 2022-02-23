@@ -16,7 +16,7 @@ class EquationCategoryTaxonomy
 
     final public static function registerTaxonomy(): WP_Error|WP_Taxonomy
     {
-        return register_taxonomy(self::TAXONOMY, ['teach_material_cat', 'teach_material'], [
+        return register_taxonomy(self::TAXONOMY, ['teach_material_cat', 'teach_material', 'equation_category'], [
             'labels'            => [
                 'name'              => _x('Kategorie výpočtů', 'taxonomy general name'),
                 'singular_name'     => _x('Kategorie výpočtů', 'taxonomy singular name'),
