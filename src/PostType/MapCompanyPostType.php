@@ -87,6 +87,7 @@ class MapCompanyPostType
         assert($activityField instanceof Field\Complex_Field);
         $activityField->add_fields([
             Field::make('text', 'activity_name', 'Název')->set_required(true),
+            Field::make('text', 'activity_description', 'Popis')->set_required(true),
         ]);
         $activityFields->add_fields([$activityField]);
         //
