@@ -7,8 +7,6 @@ I
 .src/PostType/TeachMaterialCategoryPostType.php,8/b/8b5e2e43b3bd240d91b4c983f26dd26b00498970
 V
 &src/PostType/TeachMaterialPostType.php,4/0/406a21fe75254c95af30f13022598a9b58515b47
-e
-5src/Taxonomy/NomenclatureEquationCategoryTaxonomy.php,a/c/acbf1bb0a699440269ee82fec4aa4fff484c91ae
 ]
 -src/Taxonomy/ContactSubDepartmentTaxonomy.php,7/a/7adf853bb008e8f1817d0819998482016a652596
 `
