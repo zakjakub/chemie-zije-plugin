@@ -20,7 +20,5 @@ e
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 ^
 .src/PostType/StudyMaterialCategoryPostType.php,5/9/59e1333849e473e61879e1393381c80b83663f81
-H
-src/ChemieZijePlugin.php,6/f/6f358e7ba9ed45c2c449996d4b1bc81c80c2841a
 S
 #src/PostType/MapCompanyPostType.php,0/b/0b87b9f1cc8926b38bc8dab0a7872e16496855d5
