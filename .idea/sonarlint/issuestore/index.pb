@@ -1,6 +1,4 @@
 
-=
-composer.json,3/9/3957b91a0d8450cea0115cfd5af69eac90d75897
 I
 src/PostType/PostType.php,8/f/8f3385b839d52da4f04a9351cb47c14e9f5cfa69
 ^
@@ -18,5 +16,23 @@ e
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 ^
 .src/PostType/StudyMaterialCategoryPostType.php,5/9/59e1333849e473e61879e1393381c80b83663f81
-S
-#src/PostType/MapCompanyPostType.php,0/b/0b87b9f1cc8926b38bc8dab0a7872e16496855d5
+X
+(src/PostType/ChemicalElementPostType.php,c/5/c57b210cb16999192caf58484ebf860839dad8ab
+^
+.src/PostType/ChemicalIndustryFieldPostType.php,d/d/dd7fcae8e4148d86243472b3ab8c1c0ae22cd1f1
+a
+1src/PostType/ChemicalIndustryMaterialPostType.php,2/f/2f8fcb8939d9cf4e2851c6cfb493f13e83b78dde
+]
+-src/PostType/NomenclatureEquationPostType.php,9/a/9afc08452683362a7af137f68a6aa3856c8d7de1
+Y
+)src/Taxonomy/EquationCategoryTaxonomy.php,5/6/5602d86fcf2acd2e72b0198136067885d3af6e0e
+e
+5src/Taxonomy/NomenclatureEquationCategoryTaxonomy.php,a/c/acbf1bb0a699440269ee82fec4aa4fff484c91ae
+Q
+!src/PostType/EquationPostType.php,3/b/3b27c02ae0b22abc196fa940f03592fb5a7c3cdf
+]
+-src/PostType/ChemicalNomenclaturePostType.php,9/3/9390906eb1f83cbc91d1be7b35efd7e014bd1403
+Y
+)src/PostType/EquationCategoryPostType.php,1/1/11a0e9559f4e2506251a89476662d3fd7387438f
+H
+src/ChemieZijePlugin.php,6/f/6f358e7ba9ed45c2c449996d4b1bc81c80c2841a
