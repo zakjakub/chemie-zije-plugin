@@ -26,12 +26,12 @@ class EquationPostType
     {
         return register_post_type(self::POST_TYPE, [
             'label'               => 'equation',
-            'description'         => 'Řešený příklad',
+            'description'         => 'Řešené příklady',
             'menu_icon'           => 'dashicons-media-document',
             'labels'              => [
                 'name'               => 'Řešený příklad',
                 'singular_name'      => 'Řešený příklad',
-                'menu_name'          => 'Řešený příklad)',
+                'menu_name'          => 'Řešené příklady',
                 'parent_item_colon'  => 'Nadřazený řeš. příklad',
                 'all_items'          => __('Všechny řeš. příklady'),
                 'view_item'          => __('Zobrazit řeš. příklad'),
