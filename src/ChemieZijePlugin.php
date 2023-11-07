@@ -85,6 +85,7 @@ class ChemieZijePlugin
             Field::make('text', 'contact_phone', 'Telefon'),
             Field::make('text', 'contact_fax', 'Fax'),
             Field::make('text', 'contact_e_mail', 'E-mail'),
+            Field::make('text', 'contact_url', 'URL')->set_attribute('type', 'url'),
             Field::make('text', 'contact_gps', 'GPS'),
         ]);
     }

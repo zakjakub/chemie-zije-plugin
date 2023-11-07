@@ -19,7 +19,7 @@
     }
   ],
   "require": {
-    "php": ">=8.0",
+    "php": ">=8.2",
     "wpackio/enqueue": "^3.5",
     "htmlburger/carbon-fields": "^3.6"
   },
