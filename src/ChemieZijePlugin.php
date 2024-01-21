@@ -12,6 +12,8 @@ use Zakjakub\ChemieZijePlugin\PostType\ChemicalNomenclaturePostType;
 use Zakjakub\ChemieZijePlugin\PostType\ContactPersonPostType;
 use Zakjakub\ChemieZijePlugin\PostType\EquationCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\EquationPostType;
+use Zakjakub\ChemieZijePlugin\PostType\GeneralChemistryEquationPostType;
+use Zakjakub\ChemieZijePlugin\PostType\GeneralChemistryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\MapCompanyPostType;
 use Zakjakub\ChemieZijePlugin\PostType\NomenclatureEquationPostType;
 use Zakjakub\ChemieZijePlugin\PostType\PostType;
@@ -20,6 +22,7 @@ use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialCategoryPostType;
 use Zakjakub\ChemieZijePlugin\PostType\TeachMaterialPostType;
 use Zakjakub\ChemieZijePlugin\Taxonomy\ContactSubDepartmentTaxonomy;
 use Zakjakub\ChemieZijePlugin\Taxonomy\EquationCategoryTaxonomy;
+use Zakjakub\ChemieZijePlugin\Taxonomy\GeneralChemistryEquationCategoryTaxonomy;
 use Zakjakub\ChemieZijePlugin\Taxonomy\NomenclatureEquationCategoryTaxonomy;
 use Zakjakub\ChemieZijePlugin\Taxonomy\TeachingMaterialCategoryTypeTaxonomy;
 use Zakjakub\ChemieZijePlugin\Taxonomy\TeachingMaterialSubTypeTaxonomy;
@@ -40,6 +43,7 @@ class ChemieZijePlugin
         TeachingMaterialSubTypeTaxonomy::register();
         NomenclatureEquationCategoryTaxonomy::register();
         EquationCategoryTaxonomy::register();
+        GeneralChemistryEquationCategoryTaxonomy::register();
     }
 
     final public static function registerPostTypes(): void
@@ -57,6 +61,8 @@ class ChemieZijePlugin
         ContactPersonPostType::register();
         NomenclatureEquationPostType::register();
         EquationPostType::register();
+        GeneralChemistryEquationPostType::register();
+        GeneralChemistryPostType::register();
     }
 
     final public static function loadAndRegisterCarbonFields(): void

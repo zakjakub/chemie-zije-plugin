@@ -42,3 +42,9 @@ S
 #src/PostType/MapCompanyPostType.php,0/b/0b87b9f1cc8926b38bc8dab0a7872e16496855d5
 Q
 !src/PostType/EquationPostType.php,3/b/3b27c02ae0b22abc196fa940f03592fb5a7c3cdf
+a
+1src/PostType/GeneralChemistryEquationPostType.php,8/b/8bc97fd1766a9d679cbf0ec8bd1ce1810063faa9
+i
+9src/Taxonomy/GeneralChemistryEquationCategoryTaxonomy.php,e/b/eb2d16e2745be1b88a1470dfd37428757f00cda8
+Y
+)src/PostType/GeneralChemistryPostType.php,3/1/3145f6e15cda157a8cd82e6cb8f834390ca61774
